@@ -1,0 +1,28 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
+
+// Variables
+@import 'admin/globals/variables';
+
+// Globals
+@import 'admin/globals/base';
+@import 'admin/globals/elements';
+@import 'admin/globals/icons';
+
+// Components
+@import 'admin/components/navigations';
+@import 'admin/components/forms';
+@import 'admin/components/sections';
+
+// Themes
+@import 'admin/themes/themes';
+
+
