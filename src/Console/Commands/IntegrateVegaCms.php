@@ -48,14 +48,19 @@ class IntegrateVegaCms extends Command
             false
         );
         Artisan::call('migrate');
+        $this->info('Database migrated.');
         Artisan::call('db:seed');
+        $this->info('Run seeders.');
         Artisan::call('vendor:publish --tag=assets-js --force');
+        $this->info('Published JS assets');
         Artisan::call('vendor:publish --tag=assets-sass --force');
+        $this->info('Published SCSS assets');
         shell_exec('npm install --save vue vuex');
         shell_exec('npm i laravel-vue-pagination');
         shell_exec('npm install vue-pluralize');
         shell_exec('npm i bootstrap-vue');
         shell_exec('npm i @fortawesome/fontawesome-free');
+        $this->info('JS libraries added.');
         file_put_contents(
             base_path() . '/resources/js/app.js',
             'require(\'../assets/js/app.js\');',
@@ -66,6 +71,8 @@ class IntegrateVegaCms extends Command
             '@import \'../assets/sass/app.scss\';',
             FILE_APPEND
         );
+        $this->info('Assets included.');
+        shell_exec('npm run watch');
 
     }
 }

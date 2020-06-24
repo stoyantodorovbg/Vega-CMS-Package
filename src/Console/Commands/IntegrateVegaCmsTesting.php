@@ -34,6 +34,7 @@ class IntegrateVegaCmsTesting extends Command
     public function handle(): void
     {
         Artisan::call('php artisan vendor:publish --tag=migrations --force');
+        $this->info('Published migrations.');
         $fileService = resolve(FileCreateServiceInterface::class);
         $fileService->createFile(
             '/tests/',
@@ -42,5 +43,7 @@ class IntegrateVegaCmsTesting extends Command
             __DIR__ . '/../../../Stubs/VegaCmsTestCase.stub',
             false
         );
+        $this->info('Added VegaCmsTestCase.');
+        $this->info('"phpunit vendor/vegacms/cms/tests" will executes Vega CMS package tests.');
     }
 }
