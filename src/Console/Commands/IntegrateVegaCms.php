@@ -49,8 +49,6 @@ class IntegrateVegaCms extends Command
         );
         Artisan::call('migrate');
         $this->info('Database migrated.');
-        Artisan::call('db:seed');
-        $this->info('Run seeders.');
         Artisan::call('vendor:publish --tag=assets-js --force');
         $this->info('Published JS assets');
         Artisan::call('vendor:publish --tag=assets-sass --force');
@@ -72,7 +70,10 @@ class IntegrateVegaCms extends Command
             FILE_APPEND
         );
         $this->info('Assets included.');
+        shell_exec('npm install --save jquery');
+        $this->info('jQuery added.');
+        Artisan::call('db:seed');
+        $this->info('Run seeders.');
         shell_exec('npm run watch');
-
     }
 }

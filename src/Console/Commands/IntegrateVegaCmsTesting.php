@@ -33,7 +33,7 @@ class IntegrateVegaCmsTesting extends Command
      */
     public function handle(): void
     {
-        Artisan::call('php artisan vendor:publish --tag=migrations --force');
+        Artisan::call('vendor:publish --tag=migrations --force');
         $this->info('Published migrations.');
         $fileService = resolve(FileCreateServiceInterface::class);
         $fileService->createFile(
