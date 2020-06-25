@@ -72,8 +72,6 @@ class IntegrateVegaCms extends Command
         $this->info('Assets included.');
         shell_exec('npm install --save jquery');
         $this->info('jQuery added.');
-        Artisan::call('db:seed');
-        $this->info('Run seeders.');
         shell_exec('npm run watch');
     }
 }
