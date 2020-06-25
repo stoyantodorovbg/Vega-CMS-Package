@@ -3,35 +3,51 @@ README
 
 Vega CMS
 
-This package is build on top of Laravel. It provides these functionalities:
+This package is build on top of Laravel. 
+
+It provides:
 
     Administration user interface.
     Automated creation of routes with authorizations.
     Reusable model search service.
-    File manage service.
+    File management service.
     Functionality for using locales.
     Functionality for manage phrases.
     UI menu builder.
     UI page builder.
     Smart presentation of data through Vue components.
-    Tests
+    Automated tests
+    
+Requirements:
 
-Installation: composer create-project stoyantodorovbg/Vega_CMS
+        php: ^7.2.5
+
+        laravel/framework: ^7.0
+
+Getting Started: 
+
+    composer require vegacms/cms
+ 
+    php artisan integrate:vegacms-cms
 
 Commands:
 
-    Integrate Vega CMS to existing laravel project: php artisan integrate:vegacms-cms
+    php artisan integrate:vegacms-cms - integrates Vega CMS to existing laravel project 
     
-    Integrate Vega CMS tests to existing laravel project: php artisan integrate:vegacms-cms-testing
+    php artisan integrate:vegacms-cms-testing - integrates Vega CMS tests to existing laravel project
 
-    Generate a group: php artisan generate:group {title} {--description=}
+    php artisan generate:group {title} {--description=} - generates a group
 
-    Destroy a group: php artisan destroy:group {title}
+    php artisan destroy:group {title} - destroys a group
 
-    Generate a route: php artisan generate:route {url} {method} {action} {name} {route_type=web} {action_type=front}
+    php artisan generate:route {url} {method} {action} {name} {route_type=web} {action_type=front} - generates a route
 
-    Destroy a route: php artisan destroy:route {name}
+    php artisan destroy:route {name} - destroys a route
 
-    Make the route accessible for the group members: php artisan attach:route-to-group {name} {title}
+    php artisan attach:route-to-group {name} {title} - makes the route accessible for the group members
 
-    Remove route accessibility for the group members: php artisan detach:route-from-group {name} {title}
+    php artisan detach:route-from-group {name} {title} - removes route accessibility for the group members
+
+License:
+
+    Vega CMS is open-sourced software licensed under the MIT license.
