@@ -347,5 +347,26 @@ class PhrasesLabelsTableSeeder extends Seeder
                 'en' => 'body'
             ]
         ]);
+
+        Phrase::create([
+            'system_name' => 'labels.prefix',
+            'text' => [
+                'en' => 'prefix'
+            ]
+        ]);
+
+        Phrase::create([
+            'system_name' => 'labels.front',
+            'text' => [
+                'en' => 'front'
+            ]
+        ]);
+
+        Phrase::create([
+            'system_name' => 'labels.admin',
+            'text' => [
+                'en' => 'admin'
+            ]
+        ]);
     }
 }

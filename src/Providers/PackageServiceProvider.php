@@ -117,14 +117,6 @@ class PackageServiceProvider extends ServiceProvider
                 IntegrateVegaCms::class,
                 IntegrateVegaCmsTesting::class,
             ]);
-
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
-
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
-
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/page.php');
-
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
         }
 
         Page::observe(PageObserver::class);

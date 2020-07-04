@@ -44,6 +44,6 @@ class IntegrateVegaCmsTesting extends Command
             false
         );
         $this->info('Added VegaCmsTestCase.');
-        $this->info('"phpunit vendor/vegacms/cms/tests" will executes Vega CMS package tests.');
+        $this->info('"phpunit vendor/vegacms/cms/tests" executes Vega CMS package tests.');
     }
 }

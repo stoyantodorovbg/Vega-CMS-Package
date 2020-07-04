@@ -3,6 +3,10 @@ let helpers = {
         return '/admin/' + locale;
     },
 
+    frontUrlPrefix (locale) {
+        return '/' + locale;
+    },
+
     processStyles(stylesData) {
         let styles = '';
         for (let prop in stylesData) {

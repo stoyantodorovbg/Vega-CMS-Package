@@ -15,7 +15,7 @@
             {{ menuData.description.text }}
         </div>
         <a v-if="menuItemData && menuItemData.title && menuItemData.title.status"
-           :href="$helpers.adminUrlPrefix($store.getters.locale) + menuItemData.url"
+           :href="$helpers[menuItemData.prefix + 'UrlPrefix']($store.getters.locale) + menuItemData.url"
            :class="menuItemData.title.classes"
            :style="menuItemData.title.styles"
         >

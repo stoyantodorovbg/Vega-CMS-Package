@@ -63,7 +63,7 @@ class MenuTableSeeder extends Seeder
         ]);
 
         // Sidebar navigation - admin panel - menu items
-        $menuItem = factory(MenuItem::class)->create([
+        factory(MenuItem::class)->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -110,6 +110,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -161,6 +162,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -212,6 +214,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -263,6 +266,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -314,6 +318,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -365,6 +370,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -416,6 +422,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -467,6 +474,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
@@ -518,6 +526,7 @@ class MenuTableSeeder extends Seeder
                     ],
                 ],
             ]),
+            'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);

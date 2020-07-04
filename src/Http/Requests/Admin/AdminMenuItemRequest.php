@@ -30,6 +30,7 @@ class AdminMenuItemRequest extends FormRequest
             'parent_id' => 'nullable|integer|between:0,20',
             'status' => 'required|integer|between:0,1',
             'url' => 'nullable|string|max:500',
+            'prefix' => 'required|string|in:front,admin',
             'title' => 'nullable|array',
             'description' => 'nullable|array',
             'classes' => 'nullable|string|max:500',
@@ -42,7 +43,7 @@ class AdminMenuItemRequest extends FormRequest
      *
      * @return array
      */
-    protected function validationData()
+    public function validationData()
     {
         if(is_null($this->parent_id)) {
             $this->offsetUnset('parent_id');

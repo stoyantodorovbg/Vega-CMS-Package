@@ -42,16 +42,27 @@
             <label class="text-uppercase">{{ phrase('labels.url') }}</label>
             <input type="text"
                    name="url"
-                   value="{{ isset($menuItem) ? old('name', $menuItem->url) : '' }}"
-                   id="admin-form-user-classes"
+                   value="{{ isset($menuItem) ? old('url', $menuItem->url) : '' }}"
+                   id="admin-form-menu-item-url"
                    class="form-control"
             >
+        </div>
+        <div class="form-group col-6">
+            <label class="text-uppercase">{{ phrase('labels.prefix') }}</label>
+            <select class="form-control" name="prefix" id="admin-form-menu-item-prefix">
+                <option value="front" {{ isset($menuItem) && $menuItem->prefix === 'front' ? 'selected' : '' }}>
+                    {{ phrase('labels.front') }}
+                </option>
+                <option value="admin" {{ isset($menuItem) && $menuItem->prefix === 'admin' ? 'selected' : '' }}>
+                    {{ phrase('labels.admin') }}
+                </option>
+            </select>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-6">
             <label class="text-uppercase">{{ phrase('labels.status') }}</label>
-            <select class="form-control text-capitalize" name="status" id="admin-form-locale-status">
+            <select class="form-control text-capitalize" name="status" id="admin-menu-item-status">
                 <option>{{ phrase('labels.choose_status') }}</option>
                 <option {{ isset($menuItem) && $menuItem->status === 1 ? 'selected' : '' }} value="1">
                     {{ phrase('labels.active') }}
@@ -66,7 +77,7 @@
             <input type="text"
                    name="classes"
                    value="{{ isset($menuItem) ? old('name', $menuItem->classes) : '' }}"
-                   id="admin-form-user-classes"
+                   id="admin-form-menu-item-classes"
                    class="form-control"
             >
         </div>
