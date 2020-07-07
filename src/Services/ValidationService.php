@@ -109,7 +109,6 @@ class ValidationService implements ValidationServiceInterface
                 'required',
                 'string',
                 'max:255',
-                'unique:routes,url',
                 'unique:pages,url',
                 'regex:/^\/[A-Za-z1-9-_\/{}\?]*$/',
             ],
