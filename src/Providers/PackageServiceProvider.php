@@ -67,13 +67,13 @@ class PackageServiceProvider extends ServiceProvider
 
         $this->loadFactoriesFrom(__DIR__ . '/../../database/factories');
 
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
-
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
-
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/page.php');
-
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+//        $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
+//
+//        $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
+//
+//        $this->loadRoutesFrom(__DIR__ . '/../../routes/page.php');
+//
+//        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
         $this->publishes([
             __DIR__ . '/../../resources/views' => resource_path('views/vendor/vegacms'),
@@ -103,7 +103,7 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__ . '/../../resources/sass' => resource_path('assets/sass'),
         ], 'assets-sass');
 
-        $this->registerSeedsFrom();
+       // $this->registerSeedsFrom();
 
         if ($this->app->runningInConsole()) {
             $this->commands([
