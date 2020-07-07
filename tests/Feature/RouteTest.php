@@ -48,7 +48,6 @@ class RouteTest extends TestCase
 
         $this->artisan('generate:route /test get TestController@test test.test')
             ->expectsOutput('Validation failed:')
-            ->expectsOutput('The url has already been taken.')
             ->expectsOutput('The action has already been taken.')
             ->expectsOutput('The name has already been taken.');
 
