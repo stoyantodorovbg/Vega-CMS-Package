@@ -28,15 +28,6 @@ class RoutesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Guest welcome page
-        $this->createRoute('/welcome',
-            'get',
-            'WelcomeController@index',
-            'welcome',
-            'web',
-            'front'
-        );
-
         // Ordinary user home page
         $this->createRoute('/home',
             'get',
@@ -664,33 +655,35 @@ class RoutesTableSeeder extends Seeder
                                    string $actionType,
                                    string $groupName = ''
     ): void {
-        $routes = $this->routeService->getRoutes();
-        if (! $this->routeService->checkForExistingRoute($routes, $name)) {
-            $this->routeService->create([
-                'url' => $url,
-                'method' => $method,
-                'action' => $action,
-                'name' => $name,
-                'route_type' => $routeType,
-                'action_type' => $actionType,
-            ]);
-
-            if($groupName) {
-                $this->routeService->attachRouteToGroup([
+        if(!Route::where('name', $name)->first()) {
+            $routes = $this->routeService->getRoutes();
+            if (! $this->routeService->checkForExistingRoute($routes, $name)) {
+                $this->routeService->create([
+                    'url' => $url,
+                    'method' => $method,
+                    'action' => $action,
                     'name' => $name,
-                    'title' => $groupName,
+                    'route_type' => $routeType,
+                    'action_type' => $actionType,
                 ]);
-            }
-        } else {
-            $route = factory(Route::class)->create([
-                'url' => $url,
-                'method' => $method,
-                'action' => $action,
-                'name' => $name,
-            ]);
 
-            if ($groupName) {
-                Group::where('title', $groupName)->first()->routes()->attach($route->id);
+                if($groupName) {
+                    $this->routeService->attachRouteToGroup([
+                        'name' => $name,
+                        'title' => $groupName,
+                    ]);
+                }
+            } else {
+                $route = factory(Route::class)->create([
+                    'url' => $url,
+                    'method' => $method,
+                    'action' => $action,
+                    'name' => $name,
+                ]);
+
+                if ($groupName) {
+                    Group::where('title', $groupName)->first()->routes()->attach($route->id);
+                }
             }
         }
     }

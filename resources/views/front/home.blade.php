@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome to Vega CMS. You are logged in!
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace Vegacms\Cms\Http\Controllers\Auth;
 
 use Vegacms\Cms\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Vegacms\Cms\Services\Interfaces\GroupServiceInterface;
 
 class LoginController extends Controller
 {
@@ -30,13 +31,11 @@ class LoginController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param void
      */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-
-        $this->redirectTo = app()->getLocale() . '/welcome';
     }
 
     /**
@@ -47,5 +46,17 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('vegacms::auth.login');
+    }
+
+    public function redirectTo()
+    {
+        $groupService = resolve(GroupServiceInterface::class);
+        $user = auth()->user();
+
+        if($groupService->userHasGroup($user, 'admins') || $groupService->userHasGroup($user, 'moderators')) {
+            return route('admin-dashboards.index');
+        }
+
+        return route('home');
     }
 }
