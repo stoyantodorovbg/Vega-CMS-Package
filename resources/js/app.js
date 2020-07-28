@@ -43,6 +43,7 @@ Vue.component('parent-select-input', require('./components/inputs/ParentSelectIn
 Vue.component('derived-select-input', require('./components/inputs/DerivedSelectInput.vue').default);
 Vue.component('page', require('./components/page/Page.vue').default);
 Vue.component('theme-manager', require('./components/themeManager/ThemeManager.vue').default);
+Vue.component('change-locale', require('./components/localization/ChangeLocale.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

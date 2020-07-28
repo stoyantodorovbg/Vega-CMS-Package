@@ -25,12 +25,9 @@
         @include('vegacms::front.partials.nav')
         <div class="container-fluid admin-content-wrapper">
             <div class="row">
-
                 <div class="col-md-12 col-lg-2 sidebar-main">
                     <dynamic-menu :menu_id="1"></dynamic-menu>
                 </div>
-
-
                 <div class="col-md-12 col-lg-10">
                     <div class="admin-panel">
                         @yield('content')

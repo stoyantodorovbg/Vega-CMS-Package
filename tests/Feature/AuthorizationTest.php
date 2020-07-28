@@ -17,11 +17,12 @@ class AuthorizationTest extends TestCase
     /** @test */
     public function the_requests_from_unauthorized_for_the_route_group_users_are_redirected_to_welcome_page(): void
     {
+        $this->withoutExceptionHandling();
         $this->authenticate();
 
         $this->get(route('admin-dashboards.index'))
             ->assertStatus(302)
-            ->assertRedirect(route('welcome'));
+            ->assertRedirect(route('admin-dashboards.home'));
     }
 
     /** @test */
@@ -51,7 +52,7 @@ class AuthorizationTest extends TestCase
     /** @test */
     public function the_guests_can_visit_routes_whitch_are_not_protected_by_group_authorization()
     {
-        $this->get(route('welcome'))
-            ->assertStatus(200);
+        $this->get(route('home'))
+            ->assertStatus(302);
     }
 }

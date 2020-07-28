@@ -38,20 +38,21 @@ class RoutesTableSeeder extends Seeder
             'ordinaryUsers'
         );
 
-        // Set locale
-        $this->createRoute('/set-locale',
-            'post',
-            'LocalesController@setLocale',
-            'locales.set-locale',
-            'web',
-            'front'
-        );
-
         // Admin dashboards index
         $this->createRoute('/dashboard',
             'get',
             'DashboardsController@index',
             'admin-dashboards.index',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin dashboards home
+        $this->createRoute('/',
+            'get',
+            'DashboardsController@home',
+            'admin-dashboards.home',
             'admin',
             'admin',
             'admins'
@@ -631,6 +632,24 @@ class RoutesTableSeeder extends Seeder
             'get',
             'DerivedDataController@getModelsData',
             'api.derived-input-data',
+            'api',
+            'api'
+        );
+
+        // API Get active locales
+        $this->createRoute('/get-active-locales',
+            'get',
+            'LocalesController@getActiveLocales',
+            'api.get-active-locales',
+            'api',
+            'api'
+        );
+
+        // API Set locale
+        $this->createRoute('/set-locale',
+            'post',
+            'LocalesController@setLocale',
+            'api.locales.set-locale',
             'api',
             'api'
         );

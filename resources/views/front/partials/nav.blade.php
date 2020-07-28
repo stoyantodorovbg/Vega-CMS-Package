@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-main shadow-sm">
     <div class="container">
+        <div class="float-left mr-2">
+            <change-locale></change-locale>
+        </div>
+
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Vega CMS') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>

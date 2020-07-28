@@ -15,4 +15,14 @@ class DashboardsController extends Controller
     {
         return view('vegacms::admin.dashboards.index');
     }
+
+    /**
+     * Admin home route
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function home()
+    {
+        return view('vegacms::admin.dashboards.index');
+    }
 }

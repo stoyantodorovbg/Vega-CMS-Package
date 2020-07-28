@@ -357,7 +357,8 @@ class RouteService implements RouteServiceInterface
             "')->name('" .
             $routeData['name'] .
             "');\n" .
-            '});';
+            "\t});\n" .
+            '}';
     }
 
     /**
@@ -602,9 +603,8 @@ class RouteService implements RouteServiceInterface
         $routesCount = count($routesArray) - 1;
 
         for ($i = $routesCount; $i > 0; $i--) {
-            if($routesArray[$i] === '});') {
+            if(strpos($routesArray[$i], '});') !== false || $routesArray[$i] === '}') {
                 unset($routesArray[$i]);
-                break;
             }
         }
 

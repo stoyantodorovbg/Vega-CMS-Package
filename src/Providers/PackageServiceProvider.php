@@ -22,6 +22,7 @@ use Vegacms\Cms\Repositories\BaseRepository;
 use Vegacms\Cms\Services\FileDestroyService;
 use Vegacms\Cms\Repositories\GroupRepository;
 use Vegacms\Cms\Repositories\RouteRepository;
+use Vegacms\Cms\Repositories\LocaleRepository;
 use Vegacms\Cms\Http\Middleware\OrdinaryUsers;
 use Vegacms\Cms\Console\Commands\DestroyGroup;
 use Vegacms\Cms\Console\Commands\DestroyRoute;
@@ -49,6 +50,7 @@ use Vegacms\Cms\Repositories\Interfaces\BaseRepositoryInterface;
 use Vegacms\Cms\Services\Interfaces\FileDestroyServiceInterface;
 use Vegacms\Cms\Repositories\Interfaces\GroupRepositoryInterface;
 use Vegacms\Cms\Repositories\Interfaces\RouteRepositoryInterface;
+use Vegacms\Cms\Repositories\Interfaces\LocaleRepositoryInterface;
 use Vegacms\Cms\Services\Interfaces\EloquentFilterServiceInterface;
 use Vegacms\Cms\Repositories\Interfaces\DefaultJsonStructureRepositoryInterface;
 
@@ -67,41 +69,33 @@ class PackageServiceProvider extends ServiceProvider
 
         $this->loadFactoriesFrom(__DIR__ . '/../../database/factories');
 
-//        $this->loadRoutesFrom(__DIR__ . '/../../routes/admin.php');
-//
-//        $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
-//
-//        $this->loadRoutesFrom(__DIR__ . '/../../routes/page.php');
-//
-//        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
-
         $this->publishes([
             __DIR__ . '/../../resources/views' => resource_path('views/vendor/vegacms'),
-        ], 'vegacms');
+        ], 'vegacms-views');
 
         $this->publishes([
             __DIR__ . '/../../config/cms.php' => config_path('cms.php'),
-        ]);
+        ], 'vegacms-config');
 
         $this->publishes([
             __DIR__ . '/../../database/migrations/' => database_path('migrations')
-        ], 'migrations');
+        ], 'vegacms-migrations');
 
         $this->publishes([
             __DIR__ . '/../../database/seeds/' => database_path('seeds')
-        ], 'seeds');
+        ], 'vegacms-seeds');
 
         $this->publishes([
             __DIR__ . '/../../database/factories' => database_path('factories')
-        ], 'factories');
+        ], 'vegacms-factories');
 
         $this->publishes([
             __DIR__ . '/../../resources/js' => resource_path('assets/js'),
-        ], 'assets-js');
+        ], 'vegacms-assets-js');
 
         $this->publishes([
             __DIR__ . '/../../resources/sass' => resource_path('assets/sass'),
-        ], 'assets-sass');
+        ], 'vegacms-assets-sass');
 
         $this->registerSeedsFrom();
 
@@ -147,6 +141,7 @@ class PackageServiceProvider extends ServiceProvider
         $this->app->bind(BaseRepositoryInterface::class, BaseRepository::class);
         $this->app->bind(RouteRepositoryInterface::class, RouteRepository::class);
         $this->app->bind(DefaultJsonStructureRepositoryInterface::class, DefaultJsonStructureRepository::class);
+        $this->app->bind(LocaleRepositoryInterface::class, LocaleRepository::class);
 
         // Data Mappers
         $this->app->when(PagesController::class)

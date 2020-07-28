@@ -18,6 +18,7 @@ class PageObserver
     {
         $validation = resolve(ValidationServiceInterface::class)
             ->validate(['url' => $page->url], ['url'], 'page', 'create');
+
         if($validation !== true) {
             throw ValidationException::withMessages($validation);
         }
