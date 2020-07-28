@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Page::class, function (Faker $faker) {
     return [
-        'url' => '/' . $faker->word,
+        'url' => '/' . $faker->unique()->word,
         'status' => 1,
         'col_width' => 12,
         'title' => $faker->word,

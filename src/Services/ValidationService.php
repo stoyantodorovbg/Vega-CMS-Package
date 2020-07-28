@@ -276,7 +276,11 @@ class ValidationService implements ValidationServiceInterface
     protected function localeCodeSet(): array
     {
         return [
-            'code' => 'string|size:2|exists:locales,code',
+            'code' => [
+                'string',
+                'max:2',
+                'exists:locales,code'
+            ],
         ];
     }
 }

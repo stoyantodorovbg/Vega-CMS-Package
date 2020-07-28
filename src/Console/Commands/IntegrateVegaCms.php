@@ -49,10 +49,12 @@ class IntegrateVegaCms extends Command
         );
         Artisan::call('migrate');
         $this->info('Database migrated.');
-        Artisan::call('vendor:publish --tag=assets-js --force');
+        Artisan::call('vendor:publish --tag=vegacms-assets-js --force');
+        $this->info('Config file published.');
+        Artisan::call('vendor:publish --tag=vegacms-config --force');
         $this->info('Published JS assets');
-        Artisan::call('vendor:publish --tag=assets-sass --force');
-        $this->info('Published SCSS assets');
+        Artisan::call('vendor:publish --tag=vegacms-assets-sass --force');
+        $this->info('SCSS assets published.');
         shell_exec('npm install --save vue vuex');
         shell_exec('npm i laravel-vue-pagination');
         shell_exec('npm install vue-pluralize');

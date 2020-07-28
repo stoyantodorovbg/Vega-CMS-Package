@@ -40,7 +40,7 @@ class Admins extends Middleware
             if($request->expectsJson()) {
                 return response()->json(['error' => 'Unauthenticated.'], 401);
             }
-            return redirect(route('welcome', [], false));
+            return redirect(route('admin-dashboards.home', [], false));
         }
 
         return $next($request);

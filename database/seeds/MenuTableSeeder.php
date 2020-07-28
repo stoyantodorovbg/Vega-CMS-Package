@@ -16,7 +16,7 @@ class MenuTableSeeder extends Seeder
         // Sidebar navigation - admin panel
         $menu = factory(Menu::class)->create([
             'title' => json_encode([
-                'text' => 'Vegacms CMS - Admin Panel',
+                'text' => '',
                 'status' => 1,
                 'classes' => 'nav-title',
                 'styles' => [],
