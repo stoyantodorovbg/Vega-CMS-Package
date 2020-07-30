@@ -52,7 +52,7 @@
         methods: {
             deleteModel() {
                 /** Use Getters to access state from the store **/
-                axios.delete('/api/' + this.$store.getters.locale + '/admin/destroy', {
+                axios.delete('/admin/' + this.$store.getters.locale + '/destroy', {
                         params: {
                             slug: this.request_data.slug,
                             modelName: this.request_data.modelName

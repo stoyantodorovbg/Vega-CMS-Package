@@ -168,7 +168,7 @@
                 if(page) {
                     this.page = page;
                 }
-                axios.get('/api/' + this.$store.getters.locale + '/admin/index', {
+                axios.get('/admin/' + this.$store.getters.locale + '/index', {
                         params: {
                             model: this.model_name,
                             filters: this.default_filters,

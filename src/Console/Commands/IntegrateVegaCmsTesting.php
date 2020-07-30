@@ -33,8 +33,11 @@ class IntegrateVegaCmsTesting extends Command
      */
     public function handle(): void
     {
+        // Publish migrations
         Artisan::call('vendor:publish --tag=migrations --force');
         $this->info('Published migrations.');
+
+        // Add Vega CMS TestCase
         $fileService = resolve(FileCreateServiceInterface::class);
         $fileService->createFile(
             '/tests/',

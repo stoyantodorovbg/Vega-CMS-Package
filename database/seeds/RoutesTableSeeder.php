@@ -31,7 +31,7 @@ class RoutesTableSeeder extends Seeder
         // Ordinary user home page
         $this->createRoute('/home',
             'get',
-            'HomeController@index',
+            'VegaCmsHomeController@index',
             'home',
             'web',
             'front',
@@ -68,21 +68,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin groups show
-        $this->createRoute('/groups/{group}',
-            'get',
-            'GroupsController@show',
-            'admin-groups.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin groups create
         $this->createRoute('/groups/create',
             'get',
             'GroupsController@create',
             'admin-groups.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin groups show
+        $this->createRoute('/groups/{group}',
+            'get',
+            'GroupsController@show',
+            'admin-groups.show',
             'admin',
             'admin',
             'admins'
@@ -128,21 +128,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin users show
-        $this->createRoute('/users/{user}',
-            'get',
-            'UsersController@show',
-            'admin-users.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin users create
         $this->createRoute('/users/create',
             'get',
             'UsersController@create',
             'admin-users.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin users show
+        $this->createRoute('/users/{user}',
+            'get',
+            'UsersController@show',
+            'admin-users.show',
             'admin',
             'admin',
             'admins'
@@ -188,21 +188,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin phrases show
-        $this->createRoute('/phrases/{phrase}',
-            'get',
-            'PhrasesController@show',
-            'admin-phrases.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin phrases create
         $this->createRoute('/phrases/create',
             'get',
             'PhrasesController@create',
             'admin-phrases.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin phrases show
+        $this->createRoute('/phrases/{phrase}',
+            'get',
+            'PhrasesController@show',
+            'admin-phrases.show',
             'admin',
             'admin',
             'admins'
@@ -248,21 +248,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin locales show
-        $this->createRoute('/locales/{locale}',
-            'get',
-            'LocalesController@show',
-            'admin-locales.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin locales create
         $this->createRoute('/locales/create',
             'get',
             'LocalesController@create',
             'admin-locales.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin locales show
+        $this->createRoute('/locales/{locale}',
+            'get',
+            'LocalesController@show',
+            'admin-locales.show',
             'admin',
             'admin',
             'admins'
@@ -308,21 +308,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin routes show
-        $this->createRoute('/routes/{route}',
-            'get',
-            'RoutesController@show',
-            'admin-routes.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin routes create
         $this->createRoute('/routes/create',
             'get',
             'RoutesController@create',
             'admin-routes.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin routes show
+        $this->createRoute('/routes/{route}',
+            'get',
+            'RoutesController@show',
+            'admin-routes.show',
             'admin',
             'admin',
             'admins'
@@ -368,21 +368,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin menus show
-        $this->createRoute('/menus/{menu}',
-            'get',
-            'MenusController@show',
-            'admin-menus.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin menus create
         $this->createRoute('/menus/create',
             'get',
             'MenusController@create',
             'admin-menus.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin menus show
+        $this->createRoute('/menus/{menu}',
+            'get',
+            'MenusController@show',
+            'admin-menus.show',
             'admin',
             'admin',
             'admins'
@@ -418,21 +418,21 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin menu items index
-        $this->createRoute('/menu-items/index/{menu}/{menuItem}',
-            'get',
-            'MenuItemsController@index',
-            'admin-menu-items.index',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin menu items create
         $this->createRoute('/menu-items/create',
             'get',
             'MenuItemsController@create',
             'admin-menu-items.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+        // Admin menu items index
+        $this->createRoute('/menu-items/index/{menu}/{menuItem}',
+            'get',
+            'MenuItemsController@index',
+            'admin-menu-items.index',
             'admin',
             'admin',
             'admins'
@@ -548,21 +548,22 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // Admin containers show
-        $this->createRoute('/containers/{container}',
-            'get',
-            'ContainersController@show',
-            'admin-containers.show',
-            'admin',
-            'admin',
-            'admins'
-        );
-
         // Admin containers create
         $this->createRoute('/containers/create',
             'get',
             'ContainersController@create',
             'admin-containers.create',
+            'admin',
+            'admin',
+            'admins'
+        );
+
+
+        // Admin containers show
+        $this->createRoute('/containers/{container}',
+            'get',
+            'ContainersController@show',
+            'admin-containers.show',
             'admin',
             'admin',
             'admins'
@@ -598,60 +599,60 @@ class RoutesTableSeeder extends Seeder
             'admins'
         );
 
-        // API Models index
-        $this->createRoute('/admin/index',
+        // Admin Models index
+        $this->createRoute('/index',
             'get',
-            'Admin\\\IndexController@data',
-            'api-admin.index',
-            'api',
-            'api',
+            'IndexController@data',
+            'admin-models.index',
+            'admin',
+            'admin',
             'admins'
         );
 
-        // API Models destroy
-        $this->createRoute('/admin/destroy',
+        // Admin Models destroy
+        $this->createRoute('/destroy',
             'delete',
-            'Admin\\\DeleteController@destroy',
-            'api-admin.destroy',
-            'api',
-            'api',
+            'DeleteController@destroy',
+            'admin-models.destroy',
+            'admin',
+            'admin',
             'admins'
         );
 
-        // API Menu get data
-        $this->createRoute('/menu',
+        // Menu get data
+        $this->createRoute('/menu-data',
             'get',
             'MenuController@getData',
-            'api.menu-data',
-            'api',
-            'api'
+            'menus.menu-data',
+            'web',
+            'front'
         );
 
-        // API Derived Input get data
+        // Derived Input get data
         $this->createRoute('/derived-input-data',
             'get',
             'DerivedDataController@getModelsData',
-            'api.derived-input-data',
-            'api',
-            'api'
+            'inputs.derived-input-data',
+            'web',
+            'front'
         );
 
-        // API Get active locales
+        // Get active locales
         $this->createRoute('/get-active-locales',
             'get',
             'LocalesController@getActiveLocales',
-            'api.get-active-locales',
-            'api',
-            'api'
+            'locales.get-active-locales',
+            'web',
+            'front'
         );
 
-        // API Set locale
+        // Set locale
         $this->createRoute('/set-locale',
             'post',
             'LocalesController@setLocale',
-            'api.locales.set-locale',
-            'api',
-            'api'
+            'locales.set-locale',
+            'web',
+            'front'
         );
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vegacms\Cms\Http\Controllers\Api;
+namespace Vegacms\Cms\Http\Controllers\Front;
 
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Http\Resources\MenuResource;

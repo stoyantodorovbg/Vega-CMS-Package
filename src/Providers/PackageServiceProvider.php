@@ -5,7 +5,6 @@ namespace Vegacms\Cms\Providers;
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Services\RouteService;
 use Vegacms\Cms\Services\GroupService;
-use Vegacms\Cms\Http\Middleware\Admins;
 use Vegacms\Cms\Http\Middleware\Locale;
 use Vegacms\Cms\Services\LocaleService;
 use Vegacms\Cms\Services\PhraseService;
@@ -23,7 +22,6 @@ use Vegacms\Cms\Services\FileDestroyService;
 use Vegacms\Cms\Repositories\GroupRepository;
 use Vegacms\Cms\Repositories\RouteRepository;
 use Vegacms\Cms\Repositories\LocaleRepository;
-use Vegacms\Cms\Http\Middleware\OrdinaryUsers;
 use Vegacms\Cms\Console\Commands\DestroyGroup;
 use Vegacms\Cms\Console\Commands\DestroyRoute;
 use Vegacms\Cms\Console\Commands\GenerateGroup;
@@ -155,8 +153,6 @@ class PackageServiceProvider extends ServiceProvider
             ->give(MenuDataMapper::class);
 
         $this->app['router']->aliasMiddleware('locale', Locale::class);
-        $this->app['router']->aliasMiddleware('admins', Admins::class);
-        $this->app['router']->aliasMiddleware('ordinaryUsers', OrdinaryUsers::class);
     }
 
     /**

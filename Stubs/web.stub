@@ -1,0 +1,44 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Use command line to crate routes.
+|
+*/
+
+
+/*
+|--------------------------------------------------------------------------
+| Vega CMS Web Routes
+|--------------------------------------------------------------------------
+|
+| These routes are created from Vega CMS package.
+| If you upgrade the package, make sure that there is no any code after them.
+| Thus if there are new routes from the upgrade
+| 'php artisan db:seed --class=RoutesTableSeeder' will adds them hire.
+|
+*/
+foreach(config('cms.locales.codes', []) as $code) {
+    Route::prefix($code)
+        ->middleware(['locale', 'web', 'bindings'])
+        ->namespace('\Vegacms\Cms\Http\Controllers')
+        ->group(function () {
+            Auth::routes();
+            if (app()->env === 'testing') {
+                Route::get('/test-test', 'Front\TestsController@testTest')->name('test.route');
+            }
+
+            Route::get('/home', 'Front\VegaCmsHomeController@index')->name('home')->middleware('ordinaryUsers');
+
+            Route::get('/menu-data', 'Front\MenuController@getData')->name('menus.menu-data');
+
+            Route::get('/derived-input-data', 'Front\DerivedDataController@getModelsData')->name('inputs.derived-input-data');
+
+            Route::get('/get-active-locales', 'Front\LocalesController@getActiveLocales')->name('locales.get-active-locales');
+
+            Route::post('/set-locale', 'Front\LocalesController@setLocale')->name('locales.set-locale');
+        });
+}

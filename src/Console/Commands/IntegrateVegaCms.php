@@ -32,6 +32,7 @@ class IntegrateVegaCms extends Command
      */
     public function handle(): void
     {
+        // Add routes
         $fileService = resolve(FileCreateServiceInterface::class);
         $fileService->createFile(
             '/routes/',
@@ -47,20 +48,48 @@ class IntegrateVegaCms extends Command
             __DIR__ . '/../../../Stubs/page.stub',
             false
         );
+        shell_exec('rm /routes.api.php');
+        $fileService->createFile(
+            '/routes/',
+            'api',
+            '.php',
+            __DIR__ . '/../../../Stubs/api.stub',
+            false
+        );
+        shell_exec('rm /routes.web.php');
+        $fileService->createFile(
+            '/routes/',
+            'web',
+            '.php',
+            __DIR__ . '/../../../Stubs/web.stub',
+            false
+        );
+        $this->info('Vega CMS routes added.');
+
+        // Migrate DB
         Artisan::call('migrate');
         $this->info('Database migrated.');
+
+        // Publish fron-end assets
         Artisan::call('vendor:publish --tag=vegacms-assets-js --force');
         $this->info('Config file published.');
+
         Artisan::call('vendor:publish --tag=vegacms-config --force');
         $this->info('Published JS assets');
+
         Artisan::call('vendor:publish --tag=vegacms-assets-sass --force');
         $this->info('SCSS assets published.');
+
+        // Install JS dependencies
         shell_exec('npm install --save vue vuex');
         shell_exec('npm i laravel-vue-pagination');
         shell_exec('npm install vue-pluralize');
         shell_exec('npm i bootstrap-vue');
         shell_exec('npm i @fortawesome/fontawesome-free');
+        shell_exec('npm install --save jquery');
         $this->info('JS libraries added.');
+
+        // Include front-end assets
         file_put_contents(
             base_path() . '/resources/js/app.js',
             'require(\'../assets/js/app.js\');',
@@ -72,8 +101,8 @@ class IntegrateVegaCms extends Command
             FILE_APPEND
         );
         $this->info('Assets included.');
-        shell_exec('npm install --save jquery');
-        $this->info('jQuery added.');
+
+        // Transpile front-end assets
         shell_exec('npm run watch');
     }
 }

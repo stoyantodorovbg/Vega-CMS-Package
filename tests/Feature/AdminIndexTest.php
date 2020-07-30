@@ -15,7 +15,7 @@ class AdminIndexTest extends TestCase
     /** @test */
     public function admin_models_API_requires_admins_rights()
     {
-        $this->json('GET', route('api-admin.index'), [
+        $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'items_per_page' => 20,
         ])->assertStatus(401)->assertExactJson(['error' => 'Unauthenticated.']);
@@ -23,7 +23,7 @@ class AdminIndexTest extends TestCase
         $this->authenticate();
         factory(Group::class, 5)->create();
 
-        $this->json('GET', route('api-admin.index'), [
+        $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'items_per_page' => 20,
         ])->assertStatus(401)->assertExactJson(['error' => 'Unauthenticated.']);
@@ -36,7 +36,7 @@ class AdminIndexTest extends TestCase
 
         factory(Group::class, 5)->create();
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'items_per_page' => 20,
         ])->assertStatus(200);
@@ -55,7 +55,7 @@ class AdminIndexTest extends TestCase
             'status' => 0,
         ]);
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'status' => [
@@ -71,7 +71,7 @@ class AdminIndexTest extends TestCase
 
         $this->assertCount(3, $response->getOriginalContent()->items());
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'status' => [
@@ -87,7 +87,7 @@ class AdminIndexTest extends TestCase
 
         $this->assertCount(5, $response->getOriginalContent()->items());
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'title' => [
@@ -104,7 +104,7 @@ class AdminIndexTest extends TestCase
         $this->assertCount(1, $response->getOriginalContent()->items());
         $this->assertEquals('admins', $response->getOriginalContent()->items()[0]->title);
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'title' => [
@@ -128,7 +128,7 @@ class AdminIndexTest extends TestCase
 
         factory(Group::class, 5)->create();
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'title' => [
@@ -155,7 +155,7 @@ class AdminIndexTest extends TestCase
             'created_at' => Carbon::now()->subWeek()
         ]);
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'created_at' => [
@@ -182,7 +182,7 @@ class AdminIndexTest extends TestCase
             'created_at' => Carbon::now()->subWeek()
         ]);
 
-        $response = $this->json('GET', route('api-admin.index'), [
+        $response = $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
             'filters' => json_encode([
                 'created_at' => [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vegacms\Cms\Http\Controllers\Api\Admin;
+namespace Vegacms\Cms\Http\Controllers\Admin;
 
 use Vegacms\Cms\Http\Controllers\Controller;
 use Vegacms\Cms\Http\Requests\Admin\AdminIndexRequest;

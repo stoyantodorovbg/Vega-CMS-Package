@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Vegacms\Cms\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
-class HomeController extends Controller
+class VegaCmsHomeController extends Controller
 {
     /**
      * Show the application dashboards.

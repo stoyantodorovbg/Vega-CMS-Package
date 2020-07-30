@@ -348,7 +348,7 @@ class RouteService implements RouteServiceInterface
      */
     protected function createRouteString(array $routeData): string
     {
-        return "\n    Route::" .
+        return "\n            Route::" .
             $routeData['method'] .
             "('" .
             $routeData['url'] .

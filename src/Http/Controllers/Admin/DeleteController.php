@@ -1,6 +1,6 @@
 <?php
 
-namespace Vegacms\Cms\Http\Controllers\Api\Admin;
+namespace Vegacms\Cms\Http\Controllers\Admin;
 
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;

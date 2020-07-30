@@ -21,13 +21,13 @@
 
         methods: {
             getActiveLocales() {
-                axios.get('/api/' + this.$store.getters.locale + '/get-active-locales')
+                axios.get('/' + this.$store.getters.locale + '/get-active-locales')
                     .then((response) => {
                         this.activeLocales = response.data.active_locales;
                     });
             },
             changeLocale() {
-                axios.post('/api/' + this.$store.getters.locale + '/set-locale', {
+                axios.post('/' + this.$store.getters.locale + '/set-locale', {
                     code: this.selectedLocale,
                 })
                     .then((response) => {

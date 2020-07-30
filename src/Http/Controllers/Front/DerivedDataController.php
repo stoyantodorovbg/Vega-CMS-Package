@@ -1,6 +1,6 @@
 <?php
 
-namespace Vegacms\Cms\Http\Controllers\Api;
+namespace Vegacms\Cms\Http\Controllers\Front;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;

@@ -53,17 +53,17 @@ class LocaleTest extends TestCase
         $response = $this->post(route('locales.set-locale'), ['code' => 'bga'])
             ->assertStatus(302);
 
-        $this->assertNotSame(strpos($response->getContent(), 'The code must be 2 characters.'), false);
+        $this->assertNotFalse(strpos($response->getContent(), 'The code may not be greater than 2 characters.'));
 
         $response = $this->post(route('locales.set-locale'), ['code' => 'b'])
             ->assertStatus(302);
 
-        $this->assertNotSame(strpos($response->getContent(), 'The code must be 2 characters.'), false);
+        $this->assertNotFalse(strpos($response->getContent(), 'The selected code is invalid.'));
 
         $response = $this->post(route('locales.set-locale'), ['code' => ''])
             ->assertStatus(302);
 
-        $this->assertNotSame(strpos($response->getContent(), 'The code must be 2 characters.'), false);
+        $this->assertNotFalse(strpos($response->getContent(), 'The code must be a string.'));
     }
 
     /** @test */

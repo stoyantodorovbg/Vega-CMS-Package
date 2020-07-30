@@ -57,7 +57,7 @@
                 });
             },
             getData(endpoint, params) {
-                axios.get('/api/' + this.$store.getters.locale + endpoint, {
+                axios.get('/' + this.$store.getters.locale + endpoint, {
                         params: params
                     }
                 ).then((response) => {

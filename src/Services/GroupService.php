@@ -175,7 +175,7 @@ class GroupService implements GroupServiceInterface
                 $assigned = true;
                 $this->kernelLine = $kernelData[$index];
                 $className = ucfirst($groupTitle);
-                $kernelData[$index] = "        '$groupTitle' => \Vegacms\Cms\Http\Middleware\\$className::class,";
+                $kernelData[$index] = "        '$groupTitle' => \App\Http\Middleware\\$className::class,";
                 $index++;
             }
 

@@ -6,7 +6,7 @@ use Closure;
 use ReflectionClass;
 use ReflectionException;
 use Illuminate\Http\Request;
-use App\Services\Interfaces\GroupServiceInterface;
+use Vegacms\Cms\\Services\Interfaces\GroupServiceInterface;
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 
 class DummyClass extends Middleware
