@@ -16,7 +16,7 @@
                 event_name="munu_item_menu_id_selected"
                 options="{{ $menus }}"
                 :http_data="{
-                    endpoint: '/derived-input-data',
+                    endpoint: 'derived-input-data',
                     params: {
                         model: 'MenuItem'
                     },

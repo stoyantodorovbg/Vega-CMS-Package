@@ -67,7 +67,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/dashboard',
+            'url' => 'dashboard',
             'title' => json_encode([
                 'text' => 'Dashboard',
                 'status' => 1,
@@ -119,7 +119,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/users',
+            'url' => 'users',
             'title' => json_encode([
                 'text' => 'Users',
                 'status' => 1,
@@ -171,7 +171,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/groups',
+            'url' => 'groups',
             'title' => json_encode([
                 'text' => 'User groups',
                 'status' => 1,
@@ -223,7 +223,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/phrases',
+            'url' => 'phrases',
             'title' => json_encode([
                 'text' => 'Phrases',
                 'status' => 1,
@@ -275,7 +275,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/locales',
+            'url' => 'locales',
             'title' => json_encode([
                 'text' => 'Locales',
                 'status' => 1,
@@ -327,7 +327,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/routes',
+            'url' => 'routes',
             'title' => json_encode([
                 'text' => 'Routes',
                 'status' => 1,
@@ -379,7 +379,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/menus',
+            'url' => 'menus',
             'title' => json_encode([
                 'text' => 'Menu',
                 'status' => 1,
@@ -431,7 +431,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/pages',
+            'url' => 'pages',
             'title' => json_encode([
                 'text' => 'Pages',
                 'status' => 1,
@@ -483,7 +483,7 @@ class MenuTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
-            'url' => '/containers',
+            'url' => 'containers',
             'title' => json_encode([
                 'text' => 'Containers',
                 'status' => 1,

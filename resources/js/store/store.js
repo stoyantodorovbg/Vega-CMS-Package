@@ -8,7 +8,11 @@ export default new Vuex.Store({
     },
     getters: {
       locale: state => {
-        return state.locale;
+          if(state.locale) {
+              return state.locale + '/';
+          }
+
+          return '';
       }
     },
 

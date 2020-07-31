@@ -1,7 +1,10 @@
 <template>
     <div>
-        <select @change="changeLocale" v-model="selectedLocale">
-            <option v-for="locale in activeLocales"  :key="locale.code" :value="locale.code">
+        <select v-if="activeLocales" @change="changeLocale" v-model="selectedLocale">
+            <option v-for="locale in activeLocales"
+                    :key="locale.code"
+                    :value="locale.code"
+            >
                 {{ locale.language }}
             </option>
         </select>
@@ -14,24 +17,23 @@
 
         data() {
             return {
-                selectedLocale: this.$store.getters.locale,
+                selectedLocale: this.$store.getters.locale.slice(0, -1),
                 activeLocales: this.getActiveLocales(),
             }
         },
 
         methods: {
             getActiveLocales() {
-                axios.get('/' + this.$store.getters.locale + '/get-active-locales')
+                axios.get('/' + this.$store.getters.locale + 'get-active-locales')
                     .then((response) => {
                         this.activeLocales = response.data.active_locales;
                     });
             },
             changeLocale() {
-                axios.post('/' + this.$store.getters.locale + '/set-locale', {
+                axios.post('/' + this.$store.getters.locale + 'set-locale', {
                     code: this.selectedLocale,
                 })
                     .then((response) => {
-                        console.log(response)
                         if(response.data.useUrlLocalization) {
                             this.reloadNewLocale(response.data.oldLocaleCode ,this.selectedLocale)
                         } else {

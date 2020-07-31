@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app" data-locale="{{ app()->getLocale() }}">
+<div id="app" data-locale="{{ config('cms.locales.codes', [''])[0] ? app()->getLocale() : '' }}">
     <main :class="currentTheme ? currentTheme : 'theme-default'">
         @include('vegacms::front.partials.nav')
         <div class="container-fluid admin-content-wrapper">

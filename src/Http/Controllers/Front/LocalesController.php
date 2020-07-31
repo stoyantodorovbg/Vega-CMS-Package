@@ -47,7 +47,7 @@ class LocalesController extends Controller
      */
     public function getActiveLocales()
     {
-        $locales = Locale::where('status', 1)->get();
+        $locales = Locale::whereIn('code', config('cms.locales.codes'))->where('status', 1)->get();
         $currentLocaleCode = app()->getLocale();
 
         $currentLocale = $locales->where('code', $currentLocaleCode);

@@ -1,5 +1,5 @@
 <form method="POST"
-      action="{{ isset($group) ? route('admin-groups.update', $group->getSlug()) : route('admin-groups.create') }}"
+      action="{{ isset($group) ? route('admin-groups.update', $group->getSlug()) : route('admin-groups.store') }}"
 >
     @csrf
     @if(isset($group))

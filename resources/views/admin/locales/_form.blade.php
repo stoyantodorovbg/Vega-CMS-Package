@@ -1,5 +1,5 @@
 <form method="POST"
-      action="{{ isset($locale) ? route('admin-locales.update', $locale->getSlug()) : route('admin-locales.create') }}"
+      action="{{ isset($locale) ? route('admin-locales.update', $locale->getSlug()) : route('admin-locales.store') }}"
 >
     @csrf
     @if(isset($locale))

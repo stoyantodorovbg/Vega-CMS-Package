@@ -46,7 +46,7 @@
                 type: Object,
                 default: function () {
                     return {
-                        endpoint: '/derived-input-data',
+                        endpoint: 'derived-input-data',
                         field_name: 'id',
                         params: {
                             filters: {
