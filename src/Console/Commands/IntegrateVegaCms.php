@@ -70,15 +70,15 @@ class IntegrateVegaCms extends Command
         Artisan::call('migrate');
         $this->info('Database migrated.');
 
-        // Publish fron-end assets
+        // Publish front-end assets
         Artisan::call('vendor:publish --tag=vegacms-assets-js --force');
-        $this->info('Config file published.');
-
-        Artisan::call('vendor:publish --tag=vegacms-config --force');
-        $this->info('Published JS assets');
+        $this->info('Published JS assets.');
 
         Artisan::call('vendor:publish --tag=vegacms-assets-sass --force');
         $this->info('SCSS assets published.');
+
+        Artisan::call('vendor:publish --tag=vegacms-config --force');
+        $this->info('Config file published.');
 
         // Install JS dependencies
         shell_exec('npm install --save vue vuex');

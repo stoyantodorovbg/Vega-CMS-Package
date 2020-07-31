@@ -14,7 +14,6 @@
 foreach(config('cms.locales.codes', []) as $code) {
     Route::prefix($code)
         ->middleware(['locale'])
-        ->namespace('\Vegacms\Cms\Http\Controllers')
         ->group(function () {
             Route::fallback(function ($url) {
                 return resolve(\Vegacms\Cms\Http\Controllers\Front\PageController::class)->page('/' . $url);

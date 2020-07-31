@@ -353,7 +353,7 @@ class RouteService implements RouteServiceInterface
             "('" .
             $routeData['url'] .
             "', '" .
-            $routeData['action'] .
+            config('cms.controllers_namespace') . $routeData['action'] .
             "')->name('" .
             $routeData['name'] .
             "');\n" .

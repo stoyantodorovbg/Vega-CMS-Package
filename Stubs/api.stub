@@ -30,7 +30,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 foreach(config('cms.locales.codes', []) as $code) {
     Route::prefix($code)
         ->middleware(['locale', 'bindings'])
-        ->namespace('\Vegacms\Cms\Http\Controllers')
         ->group(function () {
             Route::get('/admin/index', 'Api\Admin\IndexController@data')->name('api-admin.index')->middleware('admins');
 

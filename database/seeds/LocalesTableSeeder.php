@@ -23,11 +23,5 @@ class LocalesTableSeeder extends Seeder
             'status' => 1,
             'code' => 'en',
         ]);
-
-        factory(Locale::class)->create([
-            'language' => 'Italian',
-            'status' => 1,
-            'code' => 'i',
-        ]);
     }
 }

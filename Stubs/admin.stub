@@ -14,7 +14,6 @@
 foreach(config('cms.locales.codes', []) as $code) {
     Route::prefix($code)
         ->middleware(['locale', 'bindings'])
-        ->namespace('\Vegacms\Cms\Http\Controllers')
         ->group(function () {
          Route::get('/dashboard', 'Admin\DashboardsController@index')->name('admin-dashboards.index')->middleware('admins');
 
