@@ -20,7 +20,7 @@ class CreateRoutesTable extends Migration
             $table->string('action')->unique();
             $table->string('name')->unique();
             $table->string('route_type')->default('web');
-//            $table->string('action_type')->default('Front/');
+            $table->string('controller_namespace')->default('');
             $table->timestamps();
         });
     }

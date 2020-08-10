@@ -23,21 +23,25 @@
 */
 foreach(config('cms.locales.codes', []) as $code) {
     Route::prefix($code)
-        ->middleware(['locale', 'web', 'bindings'])
+        ->middleware(['locale', 'web'])
+        ->namespace('\Vegacms\Cms\Http\Controllers')
+        ->group(function () { Auth::routes(); });
+
+    Route::prefix($code)
+        ->middleware(['locale', 'web'])
         ->group(function () {
-            Auth::routes();
             if (app()->env === 'testing') {
-                Route::get('/test-test', 'Front\TestsController@testTest')->name('test.route');
+                Route::get('/test-test', '\Vegacms\Cms\Http\Controllers\Front\TestsController@testTest')->name('test.route');
             }
 
-            Route::get('/home', 'Front\VegaCmsHomeController@index')->name('home')->middleware('ordinaryUsers');
+            Route::get('/home', '\Vegacms\Cms\Http\Controllers\Front\VegaCmsHomeController@index')->name('home')->middleware('ordinaryUsers');
 
-            Route::get('/menu-data', 'Front\MenuController@getData')->name('menus.menu-data');
+            Route::get('/menu-data', '\Vegacms\Cms\Http\Controllers\Front\MenuController@getData')->name('menus.menu-data');
 
-            Route::get('/derived-input-data', 'Front\DerivedDataController@getModelsData')->name('inputs.derived-input-data');
+            Route::get('/derived-input-data', '\Vegacms\Cms\Http\Controllers\Front\DerivedDataController@getModelsData')->name('inputs.derived-input-data');
 
-            Route::get('/get-active-locales', 'Front\LocalesController@getActiveLocales')->name('locales.get-active-locales');
+            Route::get('/get-active-locales', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@getActiveLocales')->name('locales.get-active-locales');
 
-            Route::post('/set-locale', 'Front\LocalesController@setLocale')->name('locales.set-locale');
-        });
+            Route::post('/set-locale', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@setLocale')->name('locales.set-locale');
+		});
 }

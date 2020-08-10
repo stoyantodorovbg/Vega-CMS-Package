@@ -35,7 +35,8 @@ class RoutesTableSeeder extends Seeder
             'home',
             'web',
             'front',
-            'ordinaryUsers'
+            'ordinaryUsers',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin dashboards index
@@ -45,7 +46,8 @@ class RoutesTableSeeder extends Seeder
             'admin-dashboards.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin dashboards home
@@ -55,7 +57,8 @@ class RoutesTableSeeder extends Seeder
             'admin-dashboards.home',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin groups index
@@ -65,7 +68,8 @@ class RoutesTableSeeder extends Seeder
             'admin-groups.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin groups create
@@ -75,7 +79,8 @@ class RoutesTableSeeder extends Seeder
             'admin-groups.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin groups show
@@ -85,7 +90,8 @@ class RoutesTableSeeder extends Seeder
             'admin-groups.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin groups store
@@ -95,7 +101,8 @@ class RoutesTableSeeder extends Seeder
             'admin-groups.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
 //        // Admin groups edit
@@ -125,7 +132,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin users create
@@ -135,7 +143,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin users show
@@ -145,7 +154,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin users store
@@ -155,7 +165,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin users edit
@@ -165,7 +176,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin users update
@@ -175,7 +187,8 @@ class RoutesTableSeeder extends Seeder
             'admin-users.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases index
@@ -185,7 +198,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases create
@@ -195,7 +209,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases show
@@ -205,7 +220,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases store
@@ -215,7 +231,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases edit
@@ -225,7 +242,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin phrases update
@@ -235,7 +253,8 @@ class RoutesTableSeeder extends Seeder
             'admin-phrases.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales index
@@ -245,7 +264,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales create
@@ -255,7 +275,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales show
@@ -265,7 +286,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales store
@@ -275,7 +297,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales edit
@@ -285,7 +308,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin locales update
@@ -295,7 +319,8 @@ class RoutesTableSeeder extends Seeder
             'admin-locales.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes index
@@ -305,7 +330,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes create
@@ -315,7 +341,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes show
@@ -325,7 +352,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes store
@@ -335,7 +363,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes edit
@@ -345,7 +374,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin routes update
@@ -355,7 +385,8 @@ class RoutesTableSeeder extends Seeder
             'admin-routes.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus index
@@ -365,7 +396,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus create
@@ -375,7 +407,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus show
@@ -385,7 +418,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus store
@@ -395,7 +429,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus edit
@@ -405,7 +440,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menus update
@@ -415,7 +451,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menus.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items create
@@ -425,7 +462,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items index
@@ -435,7 +473,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items show
@@ -445,7 +484,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items store
@@ -455,7 +495,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items edit
@@ -465,7 +506,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin menu items update
@@ -475,7 +517,8 @@ class RoutesTableSeeder extends Seeder
             'admin-menu-items.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages index
@@ -485,7 +528,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages create
@@ -495,7 +539,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages show
@@ -505,7 +550,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages store
@@ -515,7 +561,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages edit
@@ -525,7 +572,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin pages update
@@ -535,7 +583,8 @@ class RoutesTableSeeder extends Seeder
             'admin-pages.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin containers index
@@ -545,7 +594,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin containers create
@@ -555,7 +605,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.create',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
 
@@ -566,7 +617,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.show',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin containers store
@@ -576,7 +628,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.store',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin containers edit
@@ -586,7 +639,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.edit',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin containers update
@@ -596,7 +650,8 @@ class RoutesTableSeeder extends Seeder
             'admin-containers.update',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin Models index
@@ -606,7 +661,8 @@ class RoutesTableSeeder extends Seeder
             'admin-models.index',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Admin Models destroy
@@ -616,7 +672,8 @@ class RoutesTableSeeder extends Seeder
             'admin-models.destroy',
             'admin',
             'admin',
-            'admins'
+            'admins',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Menu get data
@@ -625,7 +682,9 @@ class RoutesTableSeeder extends Seeder
             'MenuController@getData',
             'menus.menu-data',
             'web',
-            'front'
+            'front',
+            '',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Derived Input get data
@@ -634,7 +693,9 @@ class RoutesTableSeeder extends Seeder
             'DerivedDataController@getModelsData',
             'inputs.derived-input-data',
             'web',
-            'front'
+            'front',
+            '',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Get active locales
@@ -643,7 +704,9 @@ class RoutesTableSeeder extends Seeder
             'LocalesController@getActiveLocales',
             'locales.get-active-locales',
             'web',
-            'front'
+            'front',
+            '',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
 
         // Set locale
@@ -652,7 +715,9 @@ class RoutesTableSeeder extends Seeder
             'LocalesController@setLocale',
             'locales.set-locale',
             'web',
-            'front'
+            'front',
+            '',
+            '\Vegacms\Cms\Http\Controllers\\'
         );
     }
 
@@ -666,6 +731,7 @@ class RoutesTableSeeder extends Seeder
      * @param string $routeType
      * @param string $actionType
      * @param string $groupName
+     * @param string $controllerNamespace
      */
     protected function createRoute(string $url,
                                    string $method,
@@ -673,7 +739,8 @@ class RoutesTableSeeder extends Seeder
                                    string $name,
                                    string $routeType,
                                    string $actionType,
-                                   string $groupName = ''
+                                   string $groupName = '',
+                                   string $controllerNamespace = ''
     ): void {
         if(!Route::where('name', $name)->first()) {
             $routes = $this->routeService->getRoutes();
@@ -685,6 +752,7 @@ class RoutesTableSeeder extends Seeder
                     'name' => $name,
                     'route_type' => $routeType,
                     'action_type' => $actionType,
+                    'controller_namespace' => $controllerNamespace,
                 ]);
 
                 if($groupName) {

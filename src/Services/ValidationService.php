@@ -219,6 +219,23 @@ class ValidationService implements ValidationServiceInterface
     }
 
     /**
+     * Route type validation rules
+     *
+     * @return array
+     */
+    protected function routeControllerNamespaceCreate(): array
+    {
+        return [
+            'controller_namespace' => [
+                'nullable',
+                'string',
+                'max:255',
+                'regex:/(\\\\+[A-Za-z]+)+\\\\$/',
+            ]
+        ];
+    }
+
+    /**
      * Group title validation rule
      *
      * @return array

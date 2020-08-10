@@ -37,7 +37,7 @@ class RouteService implements RouteServiceInterface
 
         $validatedData = $this->validationService->validate(
             $data,
-            ['url', 'method', 'action', 'name', 'routeType', 'actionType'],
+            ['url', 'method', 'action', 'name', 'routeType', 'actionType', 'controllerNamespace'],
             'route',
             'create'
         );
@@ -353,11 +353,11 @@ class RouteService implements RouteServiceInterface
             "('" .
             $routeData['url'] .
             "', '" .
-            config('cms.controllers_namespace') . $routeData['action'] .
+            $routeData['controller_namespace'] . $routeData['action'] .
             "')->name('" .
             $routeData['name'] .
             "');\n" .
-            "\t});\n" .
+            "\t\t});\n" .
             '}';
     }
 
@@ -603,7 +603,7 @@ class RouteService implements RouteServiceInterface
         $routesCount = count($routesArray) - 1;
 
         for ($i = $routesCount; $i > 0; $i--) {
-            if(strpos($routesArray[$i], '});') !== false || $routesArray[$i] === '}') {
+            if($routesArray[$i] === "\t\t});" || $routesArray[$i] === '}') {
                 unset($routesArray[$i]);
             }
         }

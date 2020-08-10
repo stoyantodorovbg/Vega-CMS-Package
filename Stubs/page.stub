@@ -11,12 +11,12 @@
 | 'php artisan db:seed --class=RoutesTableSeeder' will adds them hire.
 |
 */
-foreach(config('cms.locales.codes', []) as $code) {
+foreach (config('cms.locales.codes', []) as $code) {
     Route::prefix($code)
         ->middleware(['locale'])
         ->group(function () {
             Route::fallback(function ($url) {
                 return resolve(\Vegacms\Cms\Http\Controllers\Front\PageController::class)->page('/' . $url);
-            } );
+            });
         });
 }

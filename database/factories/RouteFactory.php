@@ -13,5 +13,6 @@ $factory->define(Route::class, function (Faker $faker) {
         'method' => 'get',
         'action' => 'Front\\' . ucfirst($uniqueWord) . 'Controller@' . $method = $uniqueWord,
         'name' => $uniqueWord . '-' . $uniqueWord . '.' . $method,
+        'controller_namespace' => '\Vegacms\Cms\Http\Controllers\\',
     ];
 });
