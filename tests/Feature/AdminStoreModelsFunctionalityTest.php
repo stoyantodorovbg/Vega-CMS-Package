@@ -38,6 +38,7 @@ class AdminStoreModelsFunctionalityTest extends TestCase
     /** @test */
     public function route_can_be_created_trough_admin_form()
     {
+        $this->withoutExceptionHandling();
         $this->authenticate(null, 'admins');
 
         $this->post(route('admin-routes.store'), [

@@ -82,6 +82,17 @@
                 </select>
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label class="text-capitalize">{{ phrase('labels.controller_namespace') }}</label>
+                <input type="text"
+                       name="controller_namespace"
+                       value="{{ isset($route) ? old('controller_namespace', $route->controller_namespace) : '' }}"
+                       id="admin-form-route-controller-namespace"
+                       class="form-control"
+                >
+            </div>
+        </div>
     @endif
     <div class="row">
         <div class="form-group col-12">

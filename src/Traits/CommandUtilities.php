@@ -12,6 +12,10 @@ trait CommandUtilities
     protected function processArguments(): array
     {
         $data = $this->arguments();
+
+        if($key = array_search('null', $data)) {
+            $data[$key] = '';
+        }
         unset($data['command']);
 
         return $data;

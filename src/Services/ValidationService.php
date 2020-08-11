@@ -230,7 +230,7 @@ class ValidationService implements ValidationServiceInterface
                 'nullable',
                 'string',
                 'max:255',
-                'regex:/(\\\\+[A-Za-z]+)+\\\\$/',
+               // 'regex:/(\\\\+[A-Za-z]+)+\\\\$/',
             ]
         ];
     }

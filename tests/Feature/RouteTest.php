@@ -329,31 +329,6 @@ class RouteTest extends TestCase
 
         $this->artisan('destroy:route test.test2');
 
-        $this->artisan('generate:route /test3 get TestController@test3 test.test3 page?')
-            ->expectsOutput('The route type format is invalid.');
-
-        $this->assertDatabaseMissing('routes', [
-            'url' => '/test3',
-            'method' => 'get',
-            'action' => 'Front\TestController@test3',
-            'name' => 'test.test3',
-            'route_type' => 'page?',
-
-        ]);
-
-        $this->artisan('generate:route /test3 get TestController@test3 test.test3 page')
-            ->expectsOutput('The route is generated successfully.');
-
-        $this->assertDatabaseHas('routes', [
-            'url' => '/test3',
-            'method' => 'get',
-            'action' => 'Front\TestController@test3',
-            'name' => 'test.test3',
-            'route_type' => 'page',
-        ]);
-
-        $this->artisan('destroy:route test.test3');
-
         $this->artisan('generate:route /test4 get TestController@test4 test.test4 api:')
             ->expectsOutput('The route type format is invalid.');
 

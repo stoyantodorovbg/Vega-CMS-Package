@@ -348,12 +348,14 @@ class RouteService implements RouteServiceInterface
      */
     protected function createRouteString(array $routeData): string
     {
-        return "\n            Route::" .
+        $namespace = $routeData['controller_namespace'] ?? '';
+
+        return "\n\t\t\tRoute::" .
             $routeData['method'] .
             "('" .
             $routeData['url'] .
             "', '" .
-            $routeData['controller_namespace'] . $routeData['action'] .
+            $namespace . $routeData['action'] .
             "')->name('" .
             $routeData['name'] .
             "');\n" .
@@ -603,8 +605,12 @@ class RouteService implements RouteServiceInterface
         $routesCount = count($routesArray) - 1;
 
         for ($i = $routesCount; $i > 0; $i--) {
-            if($routesArray[$i] === "\t\t});" || $routesArray[$i] === '}') {
-                unset($routesArray[$i]);
+            if(preg_replace('/\t|\s/', '', $routesArray[$i]) &&
+                isset($routesArray[$i + 1]) &&
+                $routesArray[$i + 1] === '}' &&
+                (!isset($routesArray[$i + 2]) || (isset($routesArray[$i + 2]) && !$routesArray[$i + 2]))
+            ) {
+                unset($routesArray[$i + 1], $routesArray[$i]);
             }
         }
 
