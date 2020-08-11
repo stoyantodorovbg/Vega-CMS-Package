@@ -16,14 +16,14 @@ class IntegrateVegaCms extends Command
      *
      * @var string
      */
-    protected $signature = 'integrate:vegacms-cms';
+    protected $signature = 'integrate:vega-cms';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Integrate Vegacms CMS to laravel framework';
+    protected $description = 'Integrate Vega CMS to laravel framework';
 
     /**
      * Execute the console command.
@@ -32,8 +32,19 @@ class IntegrateVegaCms extends Command
      */
     public function handle(): void
     {
-        // Add routes
+        // Add main layout
         $fileService = resolve(FileCreateServiceInterface::class);
+
+        $fileService->createFile(
+            '/resources/views/',
+            'app',
+            '.blade.php',
+            __DIR__ . '/../../../Stubs/app.stub',
+            false
+        );
+        $this->info('Main layout added.');
+
+        // Add routes
         $fileService->createFile(
             '/routes/',
             'admin',
