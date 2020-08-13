@@ -40,13 +40,13 @@
         </div>
         <div class="form-group col-6">
             <label class="text-capitalize">{{ phrase('labels.add_to_url') }}</label>
-            <select class="form-control text-capitalize" name="status" id="admin-form-locale-status">
+            <select class="form-control text-capitalize" name="add_to_url" id="admin-form-locale-add-to-url">
                 <option>{{ phrase('labels.choose_one') }}</option>
                 <option {{ isset($locale) && $locale->add_to_url === 1 ? 'selected' : '' }} value="1">
                     {{ phrase('labels.yes') }}
                 </option>
                 <option {{ isset($locale) && $locale->add_to_url === 0 ? 'selected' : '' }} value="0">
-                    {{ phrase('labels.now') }}
+                    {{ phrase('labels.no') }}
                 </option>
             </select>
         </div>

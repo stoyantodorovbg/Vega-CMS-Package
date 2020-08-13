@@ -299,7 +299,7 @@ class RouteTest extends TestCase
             'method' => 'get',
             'action' => 'Front\TestController@test1',
             'name' => 'test.test',
-            'route_type' => 'web',
+            'route_type' => 'vega-web',
         ]);
 
         $this->artisan('destroy:route test.test');
@@ -341,7 +341,7 @@ class RouteTest extends TestCase
 
         ]);
 
-        $this->artisan('generate:route /test4 get TestController@test4 test.test4 api')
+        $this->artisan('generate:route /test4 get TestController@test4 test.test4 vega-api')
             ->expectsOutput('The route is generated successfully.');
 
         $this->assertDatabaseHas('routes', [
@@ -349,7 +349,7 @@ class RouteTest extends TestCase
             'method' => 'get',
             'action' => 'Front\TestController@test4',
             'name' => 'test.test4',
-            'route_type' => 'api',
+            'route_type' => 'vega-api',
         ]);
 
         $this->artisan('destroy:route test.test4');
@@ -424,7 +424,7 @@ class RouteTest extends TestCase
             'method' => 'get',
             'action' => 'Front\TestController@test',
             'name' => 'test.test1',
-            'route_type' => 'web',
+            'route_type' => 'vega-web',
         ]);
 
         $route = Route::where('name', 'test.test1')->first();
@@ -435,7 +435,7 @@ class RouteTest extends TestCase
             'method' => 'get',
             'action' => 'Front\TestController@test',
             'name' => 'test.test1',
-            'route_type' => 'web',
+            'route_type' => 'vega-web',
         ]);
 
         $this->artisan('sync:routes')
@@ -446,7 +446,7 @@ class RouteTest extends TestCase
             'method' => 'get',
             'action' => 'Front\TestController@test',
             'name' => 'test.test1',
-            'route_type' => 'web',
+            'route_type' => 'vega-web',
         ]);
         $this->artisan('destroy:route test.test1');
     }
@@ -492,24 +492,24 @@ class RouteTest extends TestCase
     /** @test */
     public function route_create_command_receives_optional_parameters()
     {
-        $this->artisan('generate:route /test get TestController@test test.test api');
+        $this->artisan('generate:route /test get TestController@test test.test vega-api');
 
         $this->assertDatabaseHas('routes', [
             'url' => '/test',
             'action' => 'Front\TestController@test',
             'name' => 'test.test',
-            'route_type' => 'api'
+            'route_type' => 'vega-api'
         ]);
 
         $this->artisan('destroy:route test.test');
 
-        $this->artisan('generate:route /test get TestController@test test.test api admin');
+        $this->artisan('generate:route /test get TestController@test test.test vega-api admin');
 
         $this->assertDatabaseHas('routes', [
             'url' => '/test',
             'action' => 'Admin\TestController@test',
             'name' => 'test.test',
-            'route_type' => 'api',
+            'route_type' => 'vega-api',
         ]);
 
         $this->artisan('destroy:route test.test');

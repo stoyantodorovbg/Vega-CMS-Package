@@ -33,7 +33,7 @@ class RoutesTableSeeder extends Seeder
             'get',
             'VegaCmsHomeController@index',
             'home',
-            'web',
+            'vega-web',
             'front',
             'ordinaryUsers',
             '\Vegacms\Cms\Http\Controllers\\'
@@ -681,7 +681,7 @@ class RoutesTableSeeder extends Seeder
             'get',
             'MenuController@getData',
             'menus.menu-data',
-            'web',
+            'vega-web',
             'front',
             '',
             '\Vegacms\Cms\Http\Controllers\\'
@@ -692,7 +692,7 @@ class RoutesTableSeeder extends Seeder
             'get',
             'DerivedDataController@getModelsData',
             'inputs.derived-input-data',
-            'web',
+            'vega-web',
             'front',
             '',
             '\Vegacms\Cms\Http\Controllers\\'
@@ -703,7 +703,7 @@ class RoutesTableSeeder extends Seeder
             'get',
             'LocalesController@getActiveLocales',
             'locales.get-active-locales',
-            'web',
+            'vega-web',
             'front',
             '',
             '\Vegacms\Cms\Http\Controllers\\'
@@ -714,7 +714,7 @@ class RoutesTableSeeder extends Seeder
             'post',
             'LocalesController@setLocale',
             'locales.set-locale',
-            'web',
+            'vega-web',
             'front',
             '',
             '\Vegacms\Cms\Http\Controllers\\'

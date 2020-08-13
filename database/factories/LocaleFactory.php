@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(Locale::class, function (Faker $faker) {
     return [
         'language' => $faker->unique()->word,
-        'code' => $faker->unique()->locale
+        'code' => $faker->unique()->locale,
+        'status' => 1,
+        'add_to_url' => 1,
     ];
 });

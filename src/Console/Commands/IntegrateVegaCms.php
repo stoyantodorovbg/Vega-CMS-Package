@@ -59,20 +59,18 @@ class IntegrateVegaCms extends Command
             __DIR__ . '/../../../Stubs/page.stub',
             false
         );
-        shell_exec('rm /routes.api.php');
         $fileService->createFile(
             '/routes/',
             'api',
             '.php',
-            __DIR__ . '/../../../Stubs/api.stub',
+            __DIR__ . '/../../../Stubs/vega-api.stub',
             false
         );
-        shell_exec('rm /routes.web.php');
         $fileService->createFile(
             '/routes/',
             'web',
             '.php',
-            __DIR__ . '/../../../Stubs/web.stub',
+            __DIR__ . '/../../../Stubs/vega-web.stub',
             false
         );
         $this->info('Vega CMS routes added.');

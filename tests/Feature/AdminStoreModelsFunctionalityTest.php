@@ -46,7 +46,7 @@ class AdminStoreModelsFunctionalityTest extends TestCase
             'method' => 'get',
             'action' => 'TestController@test',
             'name' => 'test.test',
-            'route_type' => 'web',
+            'route_type' => 'vega-web',
             'action_type' => 'front'
         ])
             ->assertStatus(302);

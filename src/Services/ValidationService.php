@@ -197,7 +197,7 @@ class ValidationService implements ValidationServiceInterface
             'route_type' => [
                 'string',
                 'max:255',
-                'regex:/^(web|admin|page|api)$/',
+                'regex:/^(vega-web|admin|page|vega-api)$/',
             ]
         ];
     }

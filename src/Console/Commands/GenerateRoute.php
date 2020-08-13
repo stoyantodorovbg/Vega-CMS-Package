@@ -15,7 +15,7 @@ class GenerateRoute extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:route {url} {method} {action} {name} {route_type=web} {action_type=front} {controller_namespace=null}';
+    protected $signature = 'generate:route {url} {method} {action} {name} {route_type=vega-web} {action_type=front} {controller_namespace=null}';
 
     /**
      * The console command description.

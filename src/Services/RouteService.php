@@ -87,7 +87,7 @@ class RouteService implements RouteServiceInterface
     {
         $feedback = [];
 
-        foreach (['web', 'admin', 'page', 'api'] as $routeType) {
+        foreach (['vega-web', 'admin', 'page', 'vega-api'] as $routeType) {
             $feedback[] = $this->synchronizeDBRoutes($routeType);
             $feedback[] = $this->synchronizeFile($routeType);
         }
@@ -174,12 +174,7 @@ class RouteService implements RouteServiceInterface
             return file($this->getRoutePath($routeType), FILE_IGNORE_NEW_LINES);
         }
 
-        $routeTypes = [
-            'web',
-            'page',
-            'api',
-            'admin',
-        ];
+        $routeTypes = ['vega-web', 'page', 'vega-api', 'admin'];
         $rotesData = [];
 
         foreach ($routeTypes as $routeType) {
@@ -587,7 +582,7 @@ class RouteService implements RouteServiceInterface
      */
     protected function processAction(string $action, string $actionType): string
     {
-        if(! $actionType) {
+        if(!$actionType) {
             $actionType = 'front';
         }
 

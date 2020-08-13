@@ -36,6 +36,36 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapPagesRoutes();
 
         $this->mapAdminRoutes();
+
+        $this->mapVegaWebRoutes();
+
+        $this->mapVegaApiRoutes();
+    }
+
+    /**
+     * Define the "pages" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapVegaWebRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path() . '/routes/vega-web.php');
+    }
+
+    /**
+     * Define the "pages" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapVegaApiRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path() . '/routes/vega-api.php');
     }
 
     /**

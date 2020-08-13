@@ -34,7 +34,7 @@ class IntegrateVegaCmsTesting extends Command
     public function handle(): void
     {
         // Publish migrations
-        Artisan::call('vendor:publish --tag=migrations --force');
+        Artisan::call('vendor:publish --tag=vegacms-migrations --force');
         $this->info('Published migrations.');
 
         // Add Vega CMS TestCase
