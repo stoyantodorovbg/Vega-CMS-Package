@@ -17,6 +17,7 @@
             ></button-link>
         </div>
         <div class="col-12 pr-3">
+            @include('vegacms::admin.partials.errors')
             @include('vegacms::admin.phrases._form')
         </div>
     </div>

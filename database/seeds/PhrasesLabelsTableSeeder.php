@@ -368,5 +368,14 @@ class PhrasesLabelsTableSeeder extends Seeder
                 'en' => 'admin'
             ]
         ]);
+
+        Phrase::create([
+            'system_name' => 'labels.controller_namespace',
+            'text' => [
+                'en' => 'controller namespace'
+            ]
+        ]);
+
+
     }
 }

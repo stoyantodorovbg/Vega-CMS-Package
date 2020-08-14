@@ -8,7 +8,7 @@
             <label class="text-capitalize">{{ phrase('labels.route_groups') }}</label>
             <select class="form-control text-capitalize"
                     name="titles[]"
-                    id="admin-form-locale-action_type"
+                    id="admin-form-route-action_type"
                     multiple
             >
                 @foreach($groups as $group)
@@ -45,7 +45,7 @@
             <div class="form-group col-6">
                 <label class="text-capitalize">{{ phrase('labels.action') }}</label>
                 <input type="text"
-                       name="url"
+                       name="action"
                        value="{{ isset($route) ? old('action', $route->action) : '' }}"
                        id="admin-form-route-action"
                        class="form-control"
@@ -54,7 +54,7 @@
             <div class="form-group col-6">
                 <label class="text-capitalize">{{ phrase('labels.name') }}</label>
                 <input type="text"
-                       name="method"
+                       name="name"
                        value="{{ isset($route) ? old('name', $route->name) : '' }}"
                        id="admin-form-route-name"
                        class="form-control"
@@ -64,17 +64,17 @@
         <div class="row">
             <div class="form-group col-6">
                 <label class="text-capitalize">{{ phrase('labels.route_type') }}</label>
-                <select class="form-control text-capitalize" name="route_type" id="admin-form-locale-route_type">
+                <select class="form-control" name="route_type" id="admin-form-route-route_type">
                     <option value="">{{ phrase('labels.choose_route_type') }}</option>
-                    <option value="web">web</option>
+                    <option value="vega-web">vega-web</option>
                     <option value="admin">admin</option>
                     <option value="page">page</option>
-                    <option value="api">api</option>
+                    <option value="vega-api">vega-api</option>
                 </select>
             </div>
             <div class="form-group col-6">
                 <label class="text-capitalize">{{ phrase('labels.action_type') }}</label>
-                <select class="form-control text-capitalize" name="route_type" id="admin-form-locale-action_type">
+                <select class="form-control text-capitalize" name="action_type" id="admin-form-route-action_type">
                     <option value="">{{ phrase('labels.choose_action_type') }}</option>
                     <option value="front">front</option>
                     <option value="admin">admin</option>
