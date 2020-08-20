@@ -117,12 +117,14 @@
                     let localStorageSettings = JSON.parse(localStorage.adminIndexDisplaySettings)[this.model_name];
                     if(localStorageSettings) {
                         for(let field in this.modelFields) {
-                            fieldSettings.push({
-                                name: localStorageSettings[this.modelFields[field]].name,
-                                visibility: localStorageSettings[this.modelFields[field]].visibility,
-                                position: localStorageSettings[this.modelFields[field]].position,
-                            });
-                            counter++;
+                            if(localStorageSettings[this.modelFields[field]]) {
+                                fieldSettings.push({
+                                    name: localStorageSettings[this.modelFields[field]].name,
+                                    visibility: localStorageSettings[this.modelFields[field]].visibility,
+                                    position: localStorageSettings[this.modelFields[field]].position,
+                                });
+                                counter++;
+                            }
                         }
                     } else {
                         for(let field in this.modelFields) {

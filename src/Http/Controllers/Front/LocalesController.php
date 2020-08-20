@@ -50,12 +50,13 @@ class LocalesController extends Controller
         $locales = Locale::whereIn('code', config('cms.locales.codes'))->where('status', 1)->get();
         $currentLocaleCode = app()->getLocale();
 
-        $currentLocale = $locales->where('code', $currentLocaleCode);
-        $locales = $locales->filter(function ($item) use($currentLocaleCode) {
-            return $item->code !==$currentLocaleCode;
-        });
+        if ($currentLocale = $locales->where('code', $currentLocaleCode)->first()) {
+            $locales = $locales->filter(function ($item) use ($currentLocaleCode) {
+                return $item->code !== $currentLocaleCode;
+            });
 
-        $locales->prepend($currentLocale->first());
+            $locales->prepend($currentLocale);
+        }
 
         return response()->json([
             'active_locales' => $locales,

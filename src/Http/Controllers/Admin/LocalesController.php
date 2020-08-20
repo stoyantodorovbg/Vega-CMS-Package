@@ -68,12 +68,12 @@ class LocalesController extends Controller
      *
      * @param Locale $locale
      * @param AdminLocaleRequest $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Locale $locale, AdminLocaleRequest $request)
     {
         $locale->update($request->validated());
 
-        return redirect()->back()->with(compact('locale'));
+        return redirect()->back();
     }
 }
