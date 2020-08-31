@@ -15,14 +15,13 @@ class AuthorizationTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function the_requests_from_unauthorized_for_the_route_group_users_are_redirected_to_welcome_page(): void
+    public function the_requests_from_unauthorized_for_the_route_group_users_are_redirected(): void
     {
         $this->withoutExceptionHandling();
         $this->authenticate();
 
         $this->get(route('admin-dashboards.index'))
-            ->assertStatus(302)
-            ->assertRedirect(route('admin-dashboards.home'));
+            ->assertStatus(302);
     }
 
     /** @test */

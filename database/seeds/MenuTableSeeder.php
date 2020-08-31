@@ -16,8 +16,8 @@ class MenuTableSeeder extends Seeder
         // Sidebar navigation - admin panel
         $menu = factory(Menu::class)->create([
             'title' => json_encode([
-                'text' => '',
-                'status' => 1,
+                'text' => 'Side Admin Menu',
+                'status' => 0,
                 'classes' => 'nav-title',
                 'styles' => [],
                 'structure' => [
@@ -381,7 +381,7 @@ class MenuTableSeeder extends Seeder
             'status' => 1,
             'url' => 'menus',
             'title' => json_encode([
-                'text' => 'Menu',
+                'text' => 'Menus',
                 'status' => 1,
                 'classes' => 'icon i-menu nav-item-text--light',
                 'styles',

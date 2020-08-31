@@ -26,18 +26,6 @@ class RouteTest extends TestCase
     }
 
     /** @test */
-    public function the_route_has_an_unique_url(): void
-    {
-        $route = factory(Route::class)->create();
-
-        $this->expectException('Illuminate\Database\QueryException');
-
-        factory(Route::class)->create([
-            'url' => $route->url,
-        ]);
-    }
-
-    /** @test */
     public function the_route_has_an_unique_action(): void
     {
         $route = factory(Route::class)->create();
