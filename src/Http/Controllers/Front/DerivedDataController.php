@@ -34,11 +34,12 @@ class DerivedDataController extends Controller
      */
     public function getModelsData(DerivedDataRequest $request)
     {
-        $modelName = "\\App\\Models\\" . $request->model;
+        $modelName = $request->model;
 
-        $builder = $this->eloquentFilterService->addFilters($request, $modelName::query());
+        $builder = $this->eloquentFilterService->addFilters($request, $modelName);
 
-        $methodName = Str::camel($request->model) . 'Data';
+        $modelNameData = explode('\\', $modelName);
+        $methodName = Str::camel(end($modelNameData)) . 'Data';
 
         return [
             'options' => $this->$methodName($builder)

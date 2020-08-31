@@ -22,7 +22,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $this->delete('admin/' . app()->getLocale() . '/destroy', [
+        $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $user->getSlug(),
             'modelName' => 'user',
         ])->assertStatus(200);
@@ -39,7 +39,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
 
         $locale = factory(Locale::class)->create();
 
-        $this->delete('admin/' . app()->getLocale() . '/destroy', [
+        $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $locale->getSlug(),
             'modelName' => 'locale',
         ])->assertStatus(200);
@@ -56,7 +56,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
 
         $phrase = factory(Phrase::class)->create();
 
-        $this->delete('admin/' . app()->getLocale() . '/destroy', [
+        $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $phrase->getSlug(),
             'modelName' => 'phrase',
         ])->assertStatus(200);
@@ -75,7 +75,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
         $this->authenticate(null, 'admins');
 
         $this->withoutExceptionHandling();
-        $this->delete('admin/' . app()->getLocale() . '/destroy', [
+        $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $group->getSlug(),
             'modelName' => 'group',
         ])->assertStatus(200);
@@ -93,7 +93,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
 
         $this->authenticate(null, 'admins');
 
-        $this->delete('admin/' . app()->getLocale() . '/destroy', [
+        $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $route->getSlug(),
             'modelName' => 'route',
         ])->assertStatus(200);

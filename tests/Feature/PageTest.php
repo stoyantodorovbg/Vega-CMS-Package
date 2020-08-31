@@ -25,7 +25,7 @@ class PageTest extends TestCase
         $this->withoutExceptionHandling();
         factory(Page::class)->create(['url' => '/existing-page-url']);
 
-        $this->get('/' . app()->getLocale() . '/existing-page-url')->assertStatus(200);
+        $this->get($this->localeUrlPrefix() . '/existing-page-url')->assertStatus(200);
     }
 
     /** @test */
