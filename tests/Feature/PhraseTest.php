@@ -47,7 +47,7 @@ class PhraseTest extends TestCase
         app()->setLocale('bg');
         phrase('example_phrase');
 
-        $this->assertTrue(Cache::has('phrase_' . app()->getLocale() . '_' . 'example_phrase'));
+        $this->assertTrue(Cache::has('phrase_' . $this->getAppLocale() . '_' . 'example_phrase'));
     }
 
     /** @test */

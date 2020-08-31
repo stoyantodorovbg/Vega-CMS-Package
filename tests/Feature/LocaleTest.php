@@ -23,7 +23,7 @@ class LocaleTest extends TestCase
         $this->post(route('locales.set-locale'), ['code' => 'bg'])
         ->assertStatus(200);
 
-        $this->assertEquals('bg', app()->getLocale());
+        $this->assertEquals('bg', $this->getAppLocale());
     }
 
     /** @test */
@@ -76,6 +76,6 @@ class LocaleTest extends TestCase
 
         $this->get(route('test.route'));
 
-        $this->assertEquals('en', app()->getLocale());
+        $this->assertEquals('en', $this->getAppLocale());
     }
 }

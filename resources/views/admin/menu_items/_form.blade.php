@@ -18,7 +18,7 @@
                 :http_data="{
                     endpoint: 'derived-input-data',
                     params: {
-                        model: 'MenuItem'
+                        model: '\\Vegacms\\Cms\\Models\\MenuItem'
                     },
                     field_name: 'menu_id'
                 }"
