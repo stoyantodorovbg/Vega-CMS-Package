@@ -1,7 +1,7 @@
 @extends('vegacms::admin.layouts.app')
 
 @section('content')
-    <model-index :model_name="'User'"
+    <model-index :model_name="'\\Vegacms\\Cms\\Models\\User'"
                  :actions="{
                         'show': 1,
                         'edit': 1,

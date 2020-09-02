@@ -1,7 +1,7 @@
 @extends('vegacms::admin.layouts.app')
 
 @section('content')
-    <model-index :model_name="'Phrase'"
+    <model-index :model_name="'\\Vegacms\\Cms\\Models\\Phrase'"
                  :actions="{
                         'show': 1,
                         'edit': 1,
