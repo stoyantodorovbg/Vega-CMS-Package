@@ -31,7 +31,7 @@ class IndexController extends Controller
      */
     public function data(AdminIndexRequest $request)
     {
-        $builder = $this->eloquentFilterService->addFilters($request, "\\Vegacms\\Cms\\Models\\" . $request->model);
+        $builder = $this->eloquentFilterService->addFilters($request, $request->model);
 
         return $builder->paginate($request->items_per_page, ['*'], 'page', $request->page);
     }
