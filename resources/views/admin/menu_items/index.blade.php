@@ -1,7 +1,7 @@
 @extends('vegacms::admin.layouts.app')
 
 @section('content')
-    <model-index :model_name="'MenuItem'"
+    <model-index :model_name="'\\Vegacms\\Cms\\Models\\MenuItem'"
                  :actions="{
                         'show': 1,
                         'edit': 1,

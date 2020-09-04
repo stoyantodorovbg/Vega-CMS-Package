@@ -16,6 +16,7 @@ use Vegacms\Cms\DataMappers\PageDataMapper;
 use Vegacms\Cms\DataMappers\MenuDataMapper;
 use Vegacms\Cms\Services\FileCreateService;
 use Vegacms\Cms\Services\ValidationService;
+use Vegacms\Cms\Repositories\DataRepository;
 use Vegacms\Cms\Console\Commands\SyncRoutes;
 use Vegacms\Cms\Repositories\BaseRepository;
 use Vegacms\Cms\Services\FileDestroyService;
@@ -44,6 +45,7 @@ use Vegacms\Cms\Repositories\DefaultJsonStructureRepository;
 use Vegacms\Cms\Services\Interfaces\MessageServiceInterface;
 use Vegacms\Cms\Services\Interfaces\FileCreateServiceInterface;
 use Vegacms\Cms\Services\Interfaces\ValidationServiceInterface;
+use Vegacms\Cms\Repositories\Interfaces\DataRepositoryInterface;
 use Vegacms\Cms\Repositories\Interfaces\BaseRepositoryInterface;
 use Vegacms\Cms\Services\Interfaces\FileDestroyServiceInterface;
 use Vegacms\Cms\Repositories\Interfaces\GroupRepositoryInterface;
@@ -140,6 +142,7 @@ class PackageServiceProvider extends ServiceProvider
         $this->app->bind(RouteRepositoryInterface::class, RouteRepository::class);
         $this->app->bind(DefaultJsonStructureRepositoryInterface::class, DefaultJsonStructureRepository::class);
         $this->app->bind(LocaleRepositoryInterface::class, LocaleRepository::class);
+        $this->app->bind(DataRepositoryInterface::class, DataRepository::class);
 
         // Data Mappers
         $this->app->when(PagesController::class)

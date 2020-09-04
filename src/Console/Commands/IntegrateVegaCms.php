@@ -75,6 +75,18 @@ class IntegrateVegaCms extends Command
         );
         $this->info('Vega CMS routes added.');
 
+        shell_exec('mkdir ' . base_path() . '/app/Traits');
+
+        // Add DataRepositoryTrait
+        $fileService->createFile(
+            '/app/Traits/',
+            'DataRepositoryTrait',
+            '.php',
+            __DIR__ . '/../../../Stubs/data-repository-trait.stub',
+            false
+        );
+        $this->info('DataRepositoryTrait added.');
+
         // Migrate DB
         Artisan::call('migrate');
         $this->info('Database migrated.');
