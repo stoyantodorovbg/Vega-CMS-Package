@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -105,7 +105,7 @@ class GroupTest extends TestCase
 
         $this->assertFileExists(base_path() . '/app/Http/Middleware/TestTest.php');
 
-        factory(Group::class)->create([
+        Group::factory()->create([
             'title' => 'testTest',
         ]);
 

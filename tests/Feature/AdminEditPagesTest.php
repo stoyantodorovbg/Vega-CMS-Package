@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
 use Vegacms\Cms\Models\Locale;
 use Vegacms\Cms\Models\Phrase;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -19,7 +19,7 @@ class AdminEditPagesTest extends TestCase
     public function user_edit_page_can_be_visited_from_admins()
     {
         $this->withoutExceptionHandling();
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-users.edit', $user->id))
@@ -31,7 +31,7 @@ class AdminEditPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
                 'name' => 'Test User'
             ]
         );
@@ -43,7 +43,7 @@ class AdminEditPagesTest extends TestCase
     //    /** @test */
     //    public function group_edit_page_can_be_visited_from_admins()
     //    {
-    //        $group = factory(Group::class)->create();
+    //        $group = Group::factory()->create();
     //        $this->authenticate(null, 'admins');
     //
     //        $this->get(route('admin-groups.edit', $group->getSlug()))
@@ -55,7 +55,7 @@ class AdminEditPagesTest extends TestCase
 //    {
 //        $this->authenticate(null, 'admins');
 //
-//        $group = factory(Group::class)->create([
+//        $group = Group::factory()->create([
 //                'description' => 'Test description'
 //            ]
 //        );
@@ -67,7 +67,7 @@ class AdminEditPagesTest extends TestCase
     /** @test */
     public function phrase_edit_page_can_be_visited_from_admins()
     {
-        $phrase = factory(Phrase::class)->create();
+        $phrase = Phrase::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-phrases.edit', $phrase->getSlug()))
@@ -79,7 +79,7 @@ class AdminEditPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $phrase = factory(Phrase::class)->create([
+        $phrase = Phrase::factory()->create([
                 'system_name' => 'test_system_name'
             ]
         );
@@ -91,7 +91,7 @@ class AdminEditPagesTest extends TestCase
 //    /** @test */
 //    public function route_edit_page_can_be_visited_from_admins()
 //    {
-//        $route = factory(Route::class)->create();
+//        $route = Route::factory()->create();
 //        $this->authenticate(null, 'admins');
 //
 //        $this->get(route('admin-routes.edit', $route->getSlug()))
@@ -101,7 +101,7 @@ class AdminEditPagesTest extends TestCase
     /** @test */
     public function locale_edit_page_can_be_visited_from_admins()
     {
-        $locale = factory(Locale::class)->create();
+        $locale = Locale::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-locales.edit', $locale->getSlug()))
@@ -113,7 +113,7 @@ class AdminEditPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(Locale::class)->create([
+        $locale = Locale::factory()->create([
                 'code' => 'fr'
             ]
         );

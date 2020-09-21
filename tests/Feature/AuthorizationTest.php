@@ -2,10 +2,8 @@
 
 namespace Tests\Feature;
 
-use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\User;
-use Faker\Factory;
-use Illuminate\Support\Facades\Auth;
+use Vegacms\Cms\Models\Group;
 use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -27,10 +25,10 @@ class AuthorizationTest extends TestCase
     /** @test */
     public function the_assigned_to_group_user_can_visit_a_route_that_requires_authorization_for_the_same_group(): void
     {
-        $adminGroup = factory(Group::class)->create([
+        $adminGroup = Group::factory()->create([
             'title' => 'admins'
         ]);
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $user->groups()->attach([$adminGroup->id]);
 
         $this->authenticate($user);

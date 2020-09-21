@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Phrase;
 use Illuminate\Support\Facades\Cache;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -15,7 +15,7 @@ class PhraseTest extends TestCase
     /** @test */
     public function the_phrase_text_can_be_fetched_via_helper(): void
     {
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'system_name' => 'example_phrase',
             'text' => [
                 'en' => 'a phrase in English',
@@ -36,7 +36,7 @@ class PhraseTest extends TestCase
     /** @test */
     public function phrase_helper_caches_the_phrase()
     {
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'system_name' => 'example_phrase',
             'text' => [
                 'en' => 'a phrase in English',

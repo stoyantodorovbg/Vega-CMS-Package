@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
 use Illuminate\Database\Seeder;
@@ -762,7 +764,7 @@ class RoutesTableSeeder extends Seeder
                     ]);
                 }
             } else {
-                $route = factory(Route::class)->create([
+                $route = Route::factory()->create([
                     'url' => $url,
                     'method' => $method,
                     'action' => $action,

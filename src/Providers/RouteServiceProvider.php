@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Vegacms\Cms\Http\Controllers';
+    protected $namespace = null;
 
     /**
      * Define your route model bindings, pattern filters, etc.

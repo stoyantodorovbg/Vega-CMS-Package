@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -15,9 +15,9 @@ class RouteTest extends TestCase
     /** @test */
     public function the_route_may_has_groups(): void
     {
-        $route = factory(Route::class)->create();
+        $route = Route::factory()->create();
 
-        $groups = factory(Group::class, 5)->create();
+        $groups = Group::factory()->count(5)->create();
 
         $route->groups()->saveMany($groups);
 
@@ -28,11 +28,11 @@ class RouteTest extends TestCase
     /** @test */
     public function the_route_has_an_unique_action(): void
     {
-        $route = factory(Route::class)->create();
+        $route = Route::factory()->create();
 
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(Route::class)->create([
+        Route::factory()->create([
             'action' => $route->action,
         ]);
     }
@@ -40,11 +40,11 @@ class RouteTest extends TestCase
     /** @test */
     public function the_route_has_an_unique_name()
     {
-        $route = factory(Route::class)->create();
+        $route = Route::factory()->create();
 
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(Route::class)->create([
+        Route::factory()->create([
             'name' => $route->name,
         ]);
     }

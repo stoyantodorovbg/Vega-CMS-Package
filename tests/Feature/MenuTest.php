@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Models\MenuItem;
 use Illuminate\Support\Facades\DB;
+use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Http\Resources\MenuResource;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -86,18 +86,18 @@ class MenuTest extends TestCase
      */
     protected function menuWithNestedMenuItems(): array
     {
-        $menu = factory(Menu::class)->create();
+        $menu = Menu::factory()->create();
 
-        $menuItems = factory(MenuItem::class, 3)->create();
+        $menuItems = MenuItem::factory()->count(3)->create();
 
         foreach ($menuItems as $menuItem) {
-            $childMenuItems = factory(MenuItem::class, 2)->create([
+            $childMenuItems = MenuItem::factory()->count(2)->create([
                 'menu_id' => $menu->id,
             ]);
             $menuItem->childMenuItems()->saveMany($childMenuItems);
 
             foreach ($childMenuItems as $childMenuItem) {
-                $childChildMenuItems = factory(MenuItem::class, 4)->create([
+                $childChildMenuItems = MenuItem::factory()->count(4)->create([
                     'menu_id' => $menu->id,
                 ]);
                 $childMenuItem->childMenuItems()->saveMany($childChildMenuItems);

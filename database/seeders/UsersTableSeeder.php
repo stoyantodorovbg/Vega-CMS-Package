@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Group;
 use Illuminate\Database\Seeder;
@@ -16,7 +18,7 @@ class UsersTableSeeder extends Seeder
         //$groups = Group::all();
 
         //Admin id 1
-        $admin = factory(User::class)->create([
+        $admin = User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => bcrypt('secret'),
@@ -25,7 +27,7 @@ class UsersTableSeeder extends Seeder
         //$groups->pull(0);
 
         //Moderator id 2
-        $moderator = factory(User::class)->create([
+        $moderator = User::factory()->create([
             'name' => 'Moderator',
             'email' => 'moderator@example.com',
             'password' => bcrypt('secret'),
@@ -34,17 +36,11 @@ class UsersTableSeeder extends Seeder
         //$groups->pull(1);
 
         //User id 3
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'name' => 'User',
             'email' => 'user@example.com',
             'password' => bcrypt('secret'),
         ]);
         $user->groups()->attach([3]);
-
-//        $users = factory(User::class, 20)->create();
-//
-//        $users->each(function ($user) use ($groups) {
-//            $user->groups()->saveMany($groups);
-//        });
     }
 }

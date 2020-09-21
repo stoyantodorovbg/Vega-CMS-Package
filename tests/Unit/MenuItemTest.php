@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Models\MenuItem;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -15,7 +15,7 @@ class MenuItemTest extends TestCase
     /** @test */
     public function menuItemHasAMenu()
     {
-        $menuItem = factory(MenuItem::class)->create();
+        $menuItem = MenuItem::factory()->create();
 
         $this->assertInstanceOf(Menu::class, $menuItem->menu);
     }
@@ -23,8 +23,8 @@ class MenuItemTest extends TestCase
     /** @test */
     public function menuItemMayHasParentMenuItems()
     {
-        $menuItem = factory(MenuItem::class)->create();
-        $childMenuItem = factory(MenuItem::class)->create();
+        $menuItem = MenuItem::factory()->create();
+        $childMenuItem = MenuItem::factory()->create();
 
         $childMenuItem->parentMenuItem()->associate($menuItem);
 
@@ -34,8 +34,8 @@ class MenuItemTest extends TestCase
     /** @test */
     public function menuItemMayHasManyChildMenuItems()
     {
-        $menuItem = factory(MenuItem::class)->create();
-        $childMenuItems = factory(MenuItem::class, 10)->create();
+        $menuItem = MenuItem::factory()->create();
+        $childMenuItems = MenuItem::factory()->count(10)->create();
 
         $menuItem->childMenuItems()->saveMany($childMenuItems);
         $this->assertCount(10, $menuItem->childMenuItems);

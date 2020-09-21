@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class VegaCmsDatabaseSeeder extends Seeder

@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Phrase;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -14,7 +14,7 @@ class PhraseTest extends TestCase
     /** @test */
     public function the_phrase_has_translated_text(): void
     {
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'text' => [
                 'en' => 'a phrase in English',
                 'bg' => 'фраза на български',
@@ -30,7 +30,7 @@ class PhraseTest extends TestCase
     /** @test */
     public function the_phrase_is_compliant_with_site_locale(): void
     {
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'text' => [
                 'en' => 'a phrase in English',
                 'bg' => 'фраза на български',
@@ -49,7 +49,7 @@ class PhraseTest extends TestCase
     /** @test */
     public function the_phrase_gives_translation_for_default_locale_when_have_not_translation_for_the_app_locale(): void
     {
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'text' => [
                 'en' => 'a phrase in English',
                 'bg' => 'фраза на български',

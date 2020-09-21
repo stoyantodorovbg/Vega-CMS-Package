@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Models\Route;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -23,7 +23,7 @@ class PageTest extends TestCase
     public function an_active_page_url_can_be_accessed_through_wildcard_routing()
     {
         $this->withoutExceptionHandling();
-        factory(Page::class)->create(['url' => '/existing-page-url']);
+        Page::factory()->create(['url' => '/existing-page-url']);
 
         $this->get($this->localeUrlPrefix() . '/existing-page-url')->assertStatus(200);
     }
@@ -31,11 +31,11 @@ class PageTest extends TestCase
     /** @test */
     public function page_with_the_same_url_as_existing_route_can_not_be_created()
     {
-        factory(Route::class)->create(['url' => '/test']);
+        Route::factory()->create(['url' => '/test']);
 
         $this->expectException(ValidationException::class);
 
-        factory(Page::class)->create(['url' => '/test']);
+        Page::factory()->create(['url' => '/test']);
 
         $this->assertDatabaseMissing('pages', ['url' => '/test']);
     }

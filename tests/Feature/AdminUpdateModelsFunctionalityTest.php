@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
 use Vegacms\Cms\Models\Locale;
 use Illuminate\Support\Facades\Hash;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -20,7 +20,7 @@ class AdminUpdateModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(Locale::class)->create([
+        $locale = Locale::factory()->create([
             'language' => 'Bulgaria',
             'code' => 'b',
             'status' => 1,
@@ -48,7 +48,7 @@ class AdminUpdateModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(User::class)->create([
+        $locale = User::factory()->create([
             'name' => 'test',
             'email' => 'test@email.com',
             'password' => 'test-password',
@@ -75,7 +75,7 @@ class AdminUpdateModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(Locale::class)->create([
+        $locale = Locale::factory()->create([
             'language' => 'Bulgarian',
             'code' => 'bg',
             'status' => 1,

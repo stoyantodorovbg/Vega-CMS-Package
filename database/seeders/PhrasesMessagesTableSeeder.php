@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Phrase;
 use Illuminate\Database\Seeder;
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Container;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +14,7 @@ class ContainersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Container::class)->create([
+        Container::factory()->create([
             'status' => 1,
             'semantic_tag' => 'body',
             'row_position' => 2,
@@ -32,7 +34,7 @@ class ContainersTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'text' => 'Test Body Summary',
                 'status' => 1,
@@ -46,7 +48,7 @@ class ContainersTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'text' => 'Test Body Body',
                 'status' => 1,
@@ -60,10 +62,10 @@ class ContainersTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'structure' => []
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
     }
 }

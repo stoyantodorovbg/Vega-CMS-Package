@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Locale;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,7 +16,7 @@ class LocaleTest extends TestCase
     {
         app()->setLocale('en');
 
-        factory(Locale::class)->create([
+        Locale::factory()->create([
             'code' => 'bg',
         ]);
 
@@ -29,7 +29,7 @@ class LocaleTest extends TestCase
     /** @test */
     public function the_selected_locale_is_set_in_the_session(): void
     {
-        factory(Locale::class)->create([
+        Locale::factory()->create([
             'code' => 'bg',
         ]);
 

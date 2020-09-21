@@ -3,9 +3,9 @@
 namespace Tests\Unit;
 
 use Vegacms\Cms\Models\User;
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,9 +16,9 @@ class GroupTest extends TestCase
     /** @test */
     public function the_group_may_has_users(): void
     {
-        $group = factory(Group::class)->create();
+        $group = Group::factory()->create();
 
-        $users = factory(User::class, 5)->create();
+        $users = User::factory()->count(5)->create();
 
         $group->users()->saveMany($users);
 
@@ -29,9 +29,9 @@ class GroupTest extends TestCase
     /** @test */
     public function the_group_may_has_routes(): void
     {
-        $group = factory(Group::class)->create();
+        $group = Group::factory()->create();
 
-        $routes = factory(Route::class, 5)->create();
+        $routes = Route::factory()->count(5)->create();
 
         $group->routes()->saveMany($routes);
 
@@ -42,11 +42,11 @@ class GroupTest extends TestCase
     /** @test */
     public function the_group_has_an_unique_title(): void
     {
-        $group = factory(Group::class)->create();
+        $group = Group::factory()->create();
 
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(Group::class)->create([
+        Group::factory()->create([
             'title' => $group->title,
         ]);
     }
@@ -56,7 +56,7 @@ class GroupTest extends TestCase
     {
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(User::class)->create([
+        User::factory()->create([
             'title' =>null,
         ]);
     }

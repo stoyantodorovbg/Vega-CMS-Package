@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Carbon\Carbon;
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,12 +16,12 @@ class AdminIndexTest extends TestCase
     public function admin_models_API_requires_admins_rights()
     {
         $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'items_per_page' => 20,
         ])->assertStatus(401)->assertExactJson(['error' => 'Unauthenticated.']);
 
         $this->authenticate();
-        factory(Group::class, 5)->create();
+        Group::factory()->count(5)->create();
 
         $this->json('GET', route('admin-models.index'), [
             'model' => 'Group',
@@ -32,12 +32,13 @@ class AdminIndexTest extends TestCase
     /** @test */
     public function all_items_from_a_model_can_be_fetched()
     {
+        $this->withoutExceptionHandling();
         $this->authenticate(null, 'admins');
 
-        factory(Group::class, 5)->create();
+        Group::factory()->count(5)->create();
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'items_per_page' => 20,
         ])->assertStatus(200);
 
@@ -51,12 +52,12 @@ class AdminIndexTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        factory(Group::class, 5)->create([
+        Group::factory()->count(5)->create([
             'status' => 0,
         ]);
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'status' => [
                     'types' => [
@@ -65,14 +66,14 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
         $this->assertCount(3, $response->getOriginalContent()->items());
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'status' => [
                     'types' => [
@@ -81,14 +82,14 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
         $this->assertCount(5, $response->getOriginalContent()->items());
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'title' => [
                     'types' => [
@@ -97,7 +98,7 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
@@ -105,7 +106,7 @@ class AdminIndexTest extends TestCase
         $this->assertEquals('admins', $response->getOriginalContent()->items()[0]->title);
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'title' => [
                     'types' => [
@@ -114,7 +115,7 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
@@ -126,10 +127,10 @@ class AdminIndexTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        factory(Group::class, 5)->create();
+        Group::factory()->count(5)->create();
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'title' => [
                     'types' => [
@@ -138,7 +139,7 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
@@ -151,12 +152,12 @@ class AdminIndexTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        factory(Group::class, 5)->create([
+        Group::factory()->count(5)->create([
             'created_at' => Carbon::now()->subWeek()
         ]);
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'created_at' => [
                     'types' => [
@@ -165,7 +166,7 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 
@@ -178,12 +179,12 @@ class AdminIndexTest extends TestCase
         $this->withoutExceptionHandling();
         $this->authenticate(null, 'admins');
 
-        factory(Group::class, 5)->create([
+        Group::factory()->count(5)->create([
             'created_at' => Carbon::now()->subWeek()
         ]);
 
         $response = $this->json('GET', route('admin-models.index'), [
-            'model' => 'Group',
+            'model' => '\\Vegacms\\Cms\\Models\\Group',
             'filters' => json_encode([
                 'created_at' => [
                     'types' => [
@@ -192,7 +193,7 @@ class AdminIndexTest extends TestCase
                         ]
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'items_per_page' => 20,
         ])->assertStatus(200);
 

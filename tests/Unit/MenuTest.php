@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Models\MenuItem;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -15,8 +15,8 @@ class MenuTest extends TestCase
     /** @test */
     public function the_menu_may_has_many_menu_items()
     {
-        $menu = factory(Menu::class)->create();
-        $menuItems = factory(MenuItem::class, 10)->create();
+        $menu = Menu::factory()->create();
+        $menuItems = MenuItem::factory()->count(10)->create();
 
         $menu->menuItems()->saveMany($menuItems);
 
@@ -26,12 +26,12 @@ class MenuTest extends TestCase
     /** @test */
     public function the_manu_has_parent_menu_items()
     {
-        $menu = factory(Menu::class)->create();
+        $menu = Menu::factory()->create();
 
-        $menuItems = factory(MenuItem::class, 3)->create();
+        $menuItems = MenuItem::factory()->count(3)->create();
 
         foreach($menuItems as $menuItem) {
-            $childMenuItems = factory(MenuItem::class, 2)->create([
+            $childMenuItems = MenuItem::factory()->count(2)->create([
                 'menu_id' => $menu->id,
             ]);
             $menuItem->childMenuItems()->saveMany($childMenuItems);

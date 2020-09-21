@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Models\Container;
 use Illuminate\Support\Facades\DB;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,9 +16,9 @@ class ContainerTest extends TestCase
     /** @test */
     public function the_container_may_has_many_pages()
     {
-        $container = factory(Container::class)->create();
+        $container = Container::factory()->create();
 
-        $pagesIds = factory(Page::class, 10)->create()->pluck('id')->toArray();
+        $pagesIds = Page::factory()->count(10)->create()->pluck('id')->toArray();
 
         $container->pages()->attach($pagesIds);
 
@@ -28,9 +28,9 @@ class ContainerTest extends TestCase
     /** @test */
     public function the_container_may_has_many_parent_containers()
     {
-        $container = factory(Container::class)->create();
+        $container = Container::factory()->create();
 
-        $parentContainersIds = factory(Container::class, 10)->create()->pluck('id')->toArray();
+        $parentContainersIds = Container::factory()->count(10)->create()->pluck('id')->toArray();
 
         $container->parentContainers()->attach($parentContainersIds);
 
@@ -40,9 +40,9 @@ class ContainerTest extends TestCase
     /** @test */
     public function the_container_may_has_many_child_containers()
     {
-        $container = factory(Container::class)->create();
+        $container = Container::factory()->create();
 
-        $childContainersIds = factory(Container::class, 10)->create()->pluck('id')->toArray();
+        $childContainersIds = Container::factory()->count(10)->create()->pluck('id')->toArray();
 
         $container->childContainers()->attach($childContainersIds);
 
@@ -52,11 +52,11 @@ class ContainerTest extends TestCase
     /** @test */
     public function the_container_can_load_all_nested_child_containers()
     {
-        $container = factory(Container::class)->create();
+        $container = Container::factory()->create();
 
-        $childContainers = factory(Container::class, 10)->create();
+        $childContainers = Container::factory()->count(10)->create();
 
-        $nestedContainers = factory(Container::class, 5)->create();
+        $nestedContainers = Container::factory()->count(5)->create();
 
         $container->childContainers()->attach($childContainers->pluck('id')->toArray());
 

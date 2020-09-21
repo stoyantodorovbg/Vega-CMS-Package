@@ -17,7 +17,7 @@ class CreateRoutesTable extends Migration
             $table->bigIncrements('id');
             $table->string('url');
             $table->string('method')->default('get');
-            $table->string('action')->unique();
+            $table->string('action');
             $table->string('name')->unique();
             $table->string('route_type')->default('web');
             $table->string('controller_namespace')->default('');

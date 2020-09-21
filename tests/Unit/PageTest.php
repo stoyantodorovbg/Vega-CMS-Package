@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Models\Container;
 use Illuminate\Support\Facades\DB;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -16,9 +16,9 @@ class PageTest extends TestCase
     /** @test */
     public function the_page_may_has_many_containers()
     {
-        $page = factory(Page::class)->create();
+        $page = Page::factory()->create();
 
-        $containersIds = factory(Container::class, 10)->create()->pluck('id')->toArray();
+        $containersIds = Container::factory()->count(10)->create()->pluck('id')->toArray();
 
         $page->containers()->attach($containersIds);
 
@@ -27,13 +27,13 @@ class PageTest extends TestCase
 
     public function page_can_load_all_assigned_containers_with_theirs_nested_containers()
     {
-        $page = factory(Page::class)->create();
+        $page = Page::factory()->create();
 
-        $containers = factory(Container::class, 3)->create();
+        $containers = Container::factory()->count(3)->create();
 
-        $childContainers = factory(Container::class, 10)->create();
+        $childContainers = Container::factory()->count(10)->create();
 
-        $nestedContainers = factory(Container::class, 5)->create();
+        $nestedContainers = Container::factory()->count(5)->create();
 
         $page->containers()->attach($containers->pluck('id')->toArray());
 

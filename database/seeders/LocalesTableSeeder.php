@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Locale;
 use Illuminate\Database\Seeder;
 
@@ -12,13 +14,13 @@ class LocalesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Locale::class)->create([
+        Locale::factory()->create([
             'language' => 'Bulgarian',
             'status' => 1,
             'code' => 'bg',
         ]);
 
-        factory(Locale::class)->create([
+        Locale::factory()->create([
             'language' => 'English',
             'status' => 1,
             'code' => 'en',

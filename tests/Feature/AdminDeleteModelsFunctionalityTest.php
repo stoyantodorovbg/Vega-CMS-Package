@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Route;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Locale;
 use Vegacms\Cms\Models\Phrase;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -20,7 +20,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $user->getSlug(),
@@ -37,7 +37,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(Locale::class)->create();
+        $locale = Locale::factory()->create();
 
         $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $locale->getSlug(),
@@ -54,7 +54,7 @@ class AdminDeleteModelsFunctionalityTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $phrase = factory(Phrase::class)->create();
+        $phrase = Phrase::factory()->create();
 
         $this->delete('admin' . $this->localeUrlPrefix() . '/destroy', [
             'slug' => $phrase->getSlug(),
