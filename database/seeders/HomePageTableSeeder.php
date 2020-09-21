@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Models\Container;
 use Faker\Factory as Faker;
@@ -11,12 +13,13 @@ class HomePageTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     * @throws \JsonException
      */
     public function run()
     {
         $faker = Faker::create();
 
-        $page = factory(Page::class)->create([
+        $page = Page::factory()->create([
             'url' => '/homepage',
             'status' => 1,
             'col_width' => 12,
@@ -27,15 +30,15 @@ class HomePageTableSeeder extends Seeder
             'classes' => '',
             'styles' => json_encode([
                 'border' => '3px solid red'
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'meta_tags' => json_encode([
                 [
                     'keywords' => 'home-page',
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
-        $header = factory(Container::class)->create([
+        $header = Container::factory()->create([
             'semantic_tag' => 'header',
             'status' => 1,
             'row_position' => 1,
@@ -63,7 +66,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -84,7 +87,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -102,10 +105,10 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'structure' => []
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $mainContainer = factory(Container::class)->create([
@@ -136,7 +139,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -157,7 +160,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -178,11 +181,11 @@ class HomePageTableSeeder extends Seeder
                         'font-size' => 12
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => '#F0FFFF',
                 'border' => '1px solid black',
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $articleContainer = factory(Container::class)->create([
@@ -209,7 +212,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -226,7 +229,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -243,11 +246,11 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => 'white',
                 'border' => '1px solid black'
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $mainContainer->childContainers()->attach([$articleContainer->id]);
@@ -276,7 +279,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -293,7 +296,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -310,13 +313,13 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => 'white',
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
-        $article2Wrapper = factory(Container::class)->create([
+        $article2Wrapper = Container::factory()->create([
             'status' => 1,
             'semantic_tag' => 'div',
             'row_position' => 1,
@@ -340,7 +343,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -357,7 +360,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => '',
                 'text' => '',
@@ -374,15 +377,15 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => 'white',
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $articleContainer->childContainers()->attach([$article1Wrapper->id, $article2Wrapper->id]);
 
-        $article1 = factory(Container::class)->create([
+        $article1 = Container::factory()->create([
             'status' => 1,
             'semantic_tag' => 'article',
             'row_position' => 1,
@@ -411,7 +414,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -433,7 +436,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -449,8 +452,8 @@ class HomePageTableSeeder extends Seeder
                         'content' => 'Google'
                     ],
                     [
-                    'tag' => 'span',
-                    'content' => $faker->text(100)
+                        'tag' => 'span',
+                        'content' => $faker->text(100)
                     ]
                 ],
                 'status' => 1,
@@ -469,16 +472,16 @@ class HomePageTableSeeder extends Seeder
                         'font-size' => 12
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => '#FAEBD7',
                 'border' => '1px solid black'
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $article1Wrapper->childContainers()->attach([$article1->id]);
 
-        $article2 = factory(Container::class)->create([
+        $article2 = Container::factory()->create([
             'status' => 1,
             'semantic_tag' => 'article',
             'row_position' => 1,
@@ -507,7 +510,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -529,7 +532,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -586,16 +589,16 @@ class HomePageTableSeeder extends Seeder
                         'font-size' => 12
                     ]
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'styles' => json_encode([
                 'background' => '#FAEBD7',
                 'border' => '1px solid black'
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         $article2Wrapper->childContainers()->attach([$article2->id]);
 
-        $footer = factory(Container::class)->create([
+        $footer = Container::factory()->create([
             'semantic_tag' => 'footer',
             'status' => 1,
             'row_position' => 3,
@@ -624,7 +627,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'summary' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -645,7 +648,7 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'body' => json_encode([
                 'semantic_tag' => 'div',
                 'col_width' => 12,
@@ -663,8 +666,8 @@ class HomePageTableSeeder extends Seeder
                     'classes' => '',
                     'styles' => []
                 ]
-            ]),
-            'styles' => json_encode([]),
+            ], JSON_THROW_ON_ERROR),
+            'styles' => json_encode([], JSON_THROW_ON_ERROR),
         ]);
 
 

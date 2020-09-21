@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Page;
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Models\MenuItem;
@@ -13,95 +15,96 @@ class DefaultJsonStructureTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     * @throws \JsonException
      */
     public function run()
     {
         // Menu
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Menu::class,
                 'title',
                 $this->getDefaultMenuUnitStructure()
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Menu::class,
                 'description',
                 $this->getDefaultMenuUnitStructure()
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Menu::class,
                 'styles',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
         // MenuItem
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 MenuItem::class,
                 'title',
                 $this->getDefaultMenuUnitStructure()
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 MenuItem::class,
                 'description',
                 $this->getDefaultMenuUnitStructure()
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 MenuItem::class,
                 'styles',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
         // Page
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Page::class,
                 'styles',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Page::class,
                 'meta_tags',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
         // Container
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Container::class,
                 'title',
                 json_encode([])
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Container::class,
                 'summary',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Container::class,
                 'body',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
 
-        factory(DefaultJsonStructure::class)
+        DefaultJsonStructure::factory()
             ->create($this->getDefaultStructure(
                 Container::class,
                 'styles',
-                json_encode([])
+                json_encode([], JSON_THROW_ON_ERROR)
             ));
     }
 
@@ -110,7 +113,7 @@ class DefaultJsonStructureTableSeeder extends Seeder
      *
      * @param string $model
      * @param string $field
-     * @param array $structure
+     * @param string $structure
      * @return array
      */
     protected function getDefaultStructure(string $model, string $field, string $structure): array
@@ -125,7 +128,8 @@ class DefaultJsonStructureTableSeeder extends Seeder
     /**
      * Get default structure for a menu unit
      *
-     * @return array
+     * @return string
+     * @throws \JsonException
      */
     protected function getDefaultMenuUnitStructure(): string
     {
@@ -153,6 +157,6 @@ class DefaultJsonStructureTableSeeder extends Seeder
                     ]
                 ]
             ]
-        ]);
+        ], JSON_THROW_ON_ERROR);
     }
 }

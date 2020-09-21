@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Group;
 use Illuminate\Database\Seeder;
 use Vegacms\Cms\Services\Interfaces\GroupServiceInterface;
@@ -43,7 +45,7 @@ class GroupsTableSeeder extends Seeder
                 'description' => 'All rights.'
             ]);
         } else {
-            factory(Group::class)->create([
+            Group::factory()->create([
                 'title' => 'admins',
                 'description' => 'All rights.',
             ]);
@@ -56,7 +58,7 @@ class GroupsTableSeeder extends Seeder
                 'description' => 'Some back office rights.'
             ]);
         } else {
-            factory(Group::class)->create([
+            Group::factory()->create([
                 'title' => 'moderators',
                 'description' => 'Some back office rights',
             ]);
@@ -69,7 +71,7 @@ class GroupsTableSeeder extends Seeder
                 'description' => 'Only front end rights.'
             ]);
         } else {
-            factory(Group::class)->create([
+            Group::factory()->create([
                 'title' => 'ordinaryUsers',
                 'description' => 'Only front end rights',
             ]);

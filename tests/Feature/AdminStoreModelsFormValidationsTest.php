@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Phrase;
 use Vegacms\Cms\Models\Locale;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -49,7 +49,7 @@ class AdminStoreModelsFormValidationsTest extends TestCase
             'password' => 'The password may not be greater than 50 characters.'
         ]);
 
-        factory(User::class)->create([
+        User::factory()->create([
             'email' => 'test@email.com',
         ]);
 
@@ -91,7 +91,7 @@ class AdminStoreModelsFormValidationsTest extends TestCase
             'text' => 'The text must be an array.'
         ]);
 
-        factory(Phrase::class)->create([
+        Phrase::factory()->create([
             'system_name' => 'test',
             'text' => ['en' => 'test']
         ]);
@@ -133,7 +133,7 @@ class AdminStoreModelsFormValidationsTest extends TestCase
             'add_to_url' => 'The add to url must be between 0 and 1.'
         ]);
 
-        factory(Locale::class)->create([
+        Locale::factory()->create([
             'language' => 'Bulgarian',
             'code' => 'bg',
             'status' => 1,

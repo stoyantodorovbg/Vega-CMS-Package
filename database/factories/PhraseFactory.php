@@ -1,21 +1,37 @@
 <?php
 
-/* @var $factory Factory */
+namespace Vegacms\Cms\Database\Factories;
 
 use Vegacms\Cms\Models\Phrase;
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Phrase::class, function (Faker $faker) {
-    return [
-        'system_name' => $faker->unique()->word,
-        'text' => [
-            'en' => $faker->word,
-            'bg' => $faker->word,
-            'structure' => [
-                'en' => '',
-                'bg' => ''
-            ]
-        ],
-    ];
-});
+class PhraseFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Phrase::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'system_name' => $this->faker->unique()->word,
+            'text' => [
+                'en' => $this->faker->word,
+                'bg' => $this->faker->word,
+                'structure' => [
+                    'en' => '',
+                    'bg' => ''
+                ]
+            ],
+        ];
+    }
+}
+

@@ -1,15 +1,32 @@
 <?php
 
-use Vegacms\Cms\Models\Locale;
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
+namespace Vegacms\Cms\Database\Factories;
 
-/* @var $factory Factory */
-$factory->define(Locale::class, function (Faker $faker) {
-    return [
-        'language' => $faker->unique()->word,
-        'code' => $faker->unique()->locale,
-        'status' => 1,
-        'add_to_url' => 1,
-    ];
-});
+use Vegacms\Cms\Models\Locale;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class LocaleFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Locale::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'language' => $this->faker->unique()->word,
+            'code' => $this->faker->unique()->locale,
+            'status' => 1,
+            'add_to_url' => 1,
+        ];
+    }
+}
+

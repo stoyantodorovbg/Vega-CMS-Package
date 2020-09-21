@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Phrase;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,7 +17,7 @@ class AdminUpdateModelsFormValidationsTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
             'email' => 'test@email.com',
         ]);
 
@@ -81,7 +81,7 @@ class AdminUpdateModelsFormValidationsTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $phrase = factory(Phrase::class)->create([
+        $phrase = Phrase::factory()->create([
             'system_name' => 'test',
             'text' => ['en' => 'test']
         ]);

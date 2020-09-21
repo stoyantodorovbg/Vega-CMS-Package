@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use Vegacms\Cms\Models\User;
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -15,9 +15,9 @@ class UserTest extends TestCase
     /** @test */
     public function the_user_may_has_groups(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
-        $groups = factory(Group::class, 5)->create();
+        $groups = Group::factory()->count(5)->create();
 
         $user->groups()->saveMany($groups);
 
@@ -28,11 +28,11 @@ class UserTest extends TestCase
     /** @test */
     public function the_user_has_an_unique_email(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(User::class)->create([
+        User::factory()->create([
             'title' => $user->email,
         ]);
     }
@@ -42,7 +42,7 @@ class UserTest extends TestCase
     {
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(User::class)->create([
+        User::factory()->create([
             'password' =>null,
         ]);
     }
@@ -52,7 +52,7 @@ class UserTest extends TestCase
     {
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(User::class)->create([
+        User::factory()->create([
             'email' =>null,
         ]);
     }
@@ -62,7 +62,7 @@ class UserTest extends TestCase
     {
         $this->expectException('Illuminate\Database\QueryException');
 
-        factory(User::class)->create([
+        User::factory()->create([
             'name' =>null,
         ]);
     }

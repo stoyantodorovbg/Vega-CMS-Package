@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
 use Illuminate\Database\Seeder;

@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use Vegacms\Cms\Models\Page;
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Route;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -540,7 +540,7 @@ class RouteTest extends TestCase
     /** @test */
     public function route_with_the_same_url_as_existing_page_can_not_be_created()
     {
-        factory(Page::class)->create(['url' => '/test']);
+        Page::factory()->create(['url' => '/test']);
 
         $this->artisan('generate:route /test get TestController@test test.test');
 

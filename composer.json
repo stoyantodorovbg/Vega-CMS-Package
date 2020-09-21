@@ -25,21 +25,20 @@
         "ext-json": "*",
         "fideloper/proxy": "^4.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0",
+        "laravel/ui": "^3.0",
         "spatie/laravel-translatable": "^4.1"
     },
     "require-dev": {
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "roave/security-advisories": "dev-master",
-        "ext-json": "*",
         "barryvdh/laravel-debugbar": "^3.2",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5",
-        "facade/ignition": "^2.0",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.0",
+        "facade/ignition": "^2.3.6",
         "orchestra/testbench": "5.3.0"
     },
     "extra": {
@@ -49,7 +48,7 @@
             ]
         },
         "branch-alias": {
-            "dev-master": "1.11.0-dev"
+            "dev-master": "1.12.0-dev"
         }
     },
     "config": {
@@ -62,16 +61,14 @@
             "src/Helpers/Helpers.php"
         ],
         "psr-4": {
-            "Vegacms\\Cms\\": "src"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
+            "Vegacms\\Cms\\": "src/",
+            "Vegacms\\Cms\\Database\\Factories\\": "database/factories/",
+            "Vegacms\\Cms\\Database\\Seeders\\": "database/seeders/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vegacms\\Cms\\Tests\\": "tests"
+            "Vegacms\\Cms\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

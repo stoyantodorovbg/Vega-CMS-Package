@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Tests\VegaCmsTestCase as TestCase;
 use Vegacms\Cms\Models\User;
 use Vegacms\Cms\Models\Route;
 use Vegacms\Cms\Models\Group;
 use Vegacms\Cms\Models\Locale;
 use Vegacms\Cms\Models\Phrase;
+use Tests\VegaCmsTestCase as TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -18,7 +18,7 @@ class AdminPreviewPagesTest extends TestCase
     /** @test */
     public function user_preview_page_can_be_visited_from_admins()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-users.show', $user->getSlug()))
@@ -30,7 +30,7 @@ class AdminPreviewPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $user = factory(User::class)->create([
+        $user = User::factory()->create([
                 'name' => 'Test User'
             ]
         );
@@ -42,7 +42,7 @@ class AdminPreviewPagesTest extends TestCase
     /** @test */
     public function group_preview_page_can_be_visited_from_admins()
     {
-        $group = factory(Group::class)->create();
+        $group = Group::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-groups.show', $group->getSlug()))
@@ -54,7 +54,7 @@ class AdminPreviewPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $group = factory(Group::class)->create([
+        $group = Group::factory()->create([
                 'title' => 'Test Group'
             ]
         );
@@ -66,7 +66,7 @@ class AdminPreviewPagesTest extends TestCase
     /** @test */
     public function phrase_preview_page_can_be_visited_from_admins()
     {
-        $phrase = factory(Phrase::class)->create();
+        $phrase = Phrase::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-phrases.show', $phrase->getSlug()))
@@ -78,7 +78,7 @@ class AdminPreviewPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $phrase = factory(Phrase::class)->create([
+        $phrase = Phrase::factory()->create([
                 'system_name' => 'test_system_name'
             ]
         );
@@ -90,7 +90,7 @@ class AdminPreviewPagesTest extends TestCase
     /** @test */
     public function route_preview_page_can_be_visited_from_admins()
     {
-        $route = factory(Route::class)->create();
+        $route = Route::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-routes.show', $route->getSlug()))
@@ -102,7 +102,7 @@ class AdminPreviewPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $route = factory(Route::class)->create([
+        $route = Route::factory()->create([
                 'url' => '/test'
             ]
         );
@@ -114,7 +114,7 @@ class AdminPreviewPagesTest extends TestCase
     /** @test */
     public function locale_preview_page_can_be_visited_from_admins()
     {
-        $locale = factory(Locale::class)->create();
+        $locale = Locale::factory()->create();
         $this->authenticate(null, 'admins');
 
         $this->get(route('admin-locales.show', $locale->getSlug()))
@@ -126,7 +126,7 @@ class AdminPreviewPagesTest extends TestCase
     {
         $this->authenticate(null, 'admins');
 
-        $locale = factory(Locale::class)->create([
+        $locale = Locale::factory()->create([
                 'code' => 'fr'
             ]
         );

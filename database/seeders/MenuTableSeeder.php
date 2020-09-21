@@ -1,5 +1,7 @@
 <?php
 
+namespace Vegacms\Cms\Database\Seeders;
+
 use Vegacms\Cms\Models\Menu;
 use Vegacms\Cms\Models\MenuItem;
 use Illuminate\Database\Seeder;
@@ -10,11 +12,12 @@ class MenuTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     * @throws \JsonException
      */
     public function run()
     {
-        // Sidebar navigation - admin panel
-        $menu = factory(Menu::class)->create([
+        // Sidebar navigation - admin panel ID 1
+        $menu = Menu::factory()->create([
             'title' => json_encode([
                 'text' => 'Side Admin Menu',
                 'status' => 0,
@@ -35,7 +38,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => 'Right side navigation for the administration.',
                 'status' => 0,
@@ -56,14 +59,14 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'status' => 1,
             'classes' => 'admin-side-nav',
-            'styles' => json_encode([]),
+            'styles' => json_encode([], JSON_THROW_ON_ERROR),
         ]);
 
         // Sidebar navigation - admin panel - menu items
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -88,7 +91,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -109,13 +112,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
-            'styles' => json_encode([]),
+            'styles' => json_encode([], JSON_THROW_ON_ERROR),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -140,7 +143,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -161,13 +164,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -192,7 +195,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -213,13 +216,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -244,7 +247,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -265,13 +268,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -296,7 +299,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -317,13 +320,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -348,7 +351,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -369,13 +372,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -400,7 +403,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -421,13 +424,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
             'styles' => json_encode([]),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -452,7 +455,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -473,13 +476,13 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
-            'styles' => json_encode([]),
+            'styles' => json_encode([], JSON_THROW_ON_ERROR),
         ]);
 
-        factory(MenuItem::class)->create([
+        MenuItem::factory()->create([
             'menu_id' => $menu->id,
             'parent_id' => null,
             'status' => 1,
@@ -504,7 +507,7 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'description' => json_encode([
                 'text' => '',
                 'status' => 0,
@@ -525,10 +528,10 @@ class MenuTableSeeder extends Seeder
                         'nested' => [],
                     ],
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
             'prefix' => 'admin',
             'classes' => 'nav-item',
-            'styles' => json_encode([]),
+            'styles' => json_encode([], JSON_THROW_ON_ERROR),
         ]);
     }
 }
