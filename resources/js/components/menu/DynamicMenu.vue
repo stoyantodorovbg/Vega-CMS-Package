@@ -7,43 +7,52 @@
 </template>
 
 <script>
-    import MenuItemsContainer from "./MenuItemsContainer";
+import { mapGetters } from 'vuex';
+import MenuItemsContainer from "./MenuItemsContainer";
 
-    export default {
-        name: 'DynamicMenu',
+export default {
+    name: 'DynamicMenu',
 
-        components: {
-            MenuItemsContainer,
+    components: {
+        MenuItemsContainer,
+    },
+
+    props: {
+        menu_id: {
+            type: Number,
+            default: 1
         },
+    },
 
-        props: {
-            menu_id: {
-                type: Number,
-                default: 1
-            },
-        },
+    data() {
+        return {
+            menuData: {},
+            baseUrl: ''
+        }
+    },
 
-        data() {
-            return {
-                menuData: {},
-            }
-        },
+    mounted() {
+        this.load();
+    },
 
-        mounted() {
-            this.load();
-        },
+    computed: {
+        ...mapGetters(['locale']),
+    },
 
-        methods: {
-            load() {
-                axios.get('/' + this.$store.getters.locale + 'menu-data', {
-                        params: {
-                            menu_id: this.menu_id
-                        }
+    methods: {
+        load() {
+
+            this.baseUrl = '/';//= '/Vega-CMS-Documentation/public/';
+            // this.$store.getters.locale === this.locale;
+            axios.get(this.baseUrl + this.locale + 'menu-data', {
+                    params: {
+                        menu_id: this.menu_id
                     }
-                ).then((response) => {
-                    this.menuData = response.data.menu;
-                });
-            }
+                }
+            ).then((response) => {
+                this.menuData = response.data.menu;
+            });
         }
     }
+}
 </script>

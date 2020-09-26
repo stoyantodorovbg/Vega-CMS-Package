@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <!-- Create Model -->
-        <button-link :prop_data="getButtonCreatePropData()"></button-link>
+        <button-link v-if="add_create_button" :prop_data="getButtonCreatePropData()"></button-link>
         <!-- Filters -->
         <menage-filters :fields="fieldsFiltersSettings"></menage-filters>
 
@@ -93,6 +93,10 @@ export default {
         items_per_page: {
             type: Number,
             default: 20,
+        },
+        add_create_button: {
+            type: Boolean,
+            default: true,
         }
     },
 

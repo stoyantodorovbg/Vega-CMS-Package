@@ -721,6 +721,17 @@ class RoutesTableSeeder extends Seeder
             '',
             '\Vegacms\Cms\Http\Controllers\\'
         );
+
+        // Get locale
+        $this->createRoute('/get-locale',
+            'get',
+            'LocalesController@getLocale',
+            'locales.get-locale',
+            'vega-web',
+            'front',
+            '',
+            '\Vegacms\Cms\Http\Controllers\\'
+        );
     }
 
     /**

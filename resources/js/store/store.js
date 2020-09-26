@@ -4,19 +4,37 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        locale: document.getElementById('app').getAttribute('data-locale'),
+        st_locale: document.getElementById('app').getAttribute('data-locale'),
+    },
+    actions: {
+        async vx_getLocale({commit}) {
+            try {
+                const response = await axios.get('/get-locale');
+                if(!response.data.locale) {
+                    return;
+                }
+                commit('setLocale', response.data.locale);
+
+            } catch (err) {
+                console.log(err);
+            }
+
+
+        }
+    },
+    mutations: {
+        setLocale({state}, locale) {
+            return state.st_locale;
+        }
     },
     getters: {
-      locale: state => {
-          if(state.locale) {
-              return state.locale + '/';
-          }
+        locale: state => {
 
-          return '';
-      }
+            if(state.st_locale) {
+                return state.st_locale + '/';
+            }
+
+            return '';
+        }
     },
-
-    mutations: {},
-
-    actions: {}
 });
