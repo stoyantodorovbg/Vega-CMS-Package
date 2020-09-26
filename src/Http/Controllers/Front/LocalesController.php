@@ -62,4 +62,14 @@ class LocalesController extends Controller
             'active_locales' => $locales,
         ]);
     }
+
+    /**
+     * Get app locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return app()->getLocale();
+    }
 }

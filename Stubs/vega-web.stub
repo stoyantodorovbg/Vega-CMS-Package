@@ -20,6 +20,7 @@ foreach(config('cms.locales.codes', []) as $code) {
         ->group(function () {
             Auth::routes();
         });
+    Route::get('/get-locale', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@getLocale')->name('locales.get-locale');
 
     Route::prefix($code)
         ->middleware(['locale', 'web'])
@@ -37,5 +38,7 @@ foreach(config('cms.locales.codes', []) as $code) {
             Route::get('/get-active-locales', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@getActiveLocales')->name('locales.get-active-locales');
 
             Route::post('/set-locale', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@setLocale')->name('locales.set-locale');
+
+			Route::get('/get-locale', '\Vegacms\Cms\Http\Controllers\Front\LocalesController@getLocale')->name('locales.get-locale');
 		});
 }
