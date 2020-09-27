@@ -1,30 +1,26 @@
 
-README
+# Vega CMS PHP Package based on Laravel Framework. 
 
-Vega CMS
+## It provides:
 
-This package is build on top of Laravel. 
-
-It provides:
-
-    Administration user interface.
-    Automated creation of routes with authorizations.
-    Reusable model search service.
-    File management service.
-    Functionality for using locales.
-    Functionality for manage phrases.
-    UI menu builder.
-    UI page builder.
-    Smart presentation of data through Vue components.
-    Automated tests
+   Administration user interface.
+   Automated creation of routes with authorizations.
+   Reusable model search service.
+   File management service.
+   Translation functionality and URL locales.
+   Menu builder.
+   Page builder.
+   Smart data presentation through Vue.js components.
+   Easy to use utilities.
+   Automated tests.
     
-Requirements:
+## Requirements:
 
-        php: ^7.2.5
+    php: ^7.2.5
 
-        laravel/framework: ^7.0
+    laravel/framework: ^8.0
 
-Getting Started: 
+## Getting Started: 
 
     composer require vegacms/cms
  
@@ -34,7 +30,7 @@ Getting Started:
 
     browser: {your host}/en/login
 
-Commands:
+## Commands:
 
     php artisan integrate:vegacms-cms - integrates Vega CMS to existing laravel project 
     
@@ -51,7 +47,12 @@ Commands:
     php artisan attach:route-to-group {name} {title} - makes the route accessible for the group members
 
     php artisan detach:route-from-group {name} {title} - removes route accessibility for the group members
+    
+## For more information see:   
+    
+[Documentation](https://vegacms.com)   
+[Packagist](https://packagist.org/packages/vegacms/cms) 
 
-License:
+## License:
 
-    Vega CMS is open-sourced software licensed under the MIT license.
+Vega CMS Package is open-sourced software licensed under the MIT license. Please see [License file](LICENSE).
