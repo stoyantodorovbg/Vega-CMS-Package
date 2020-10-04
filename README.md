@@ -51,7 +51,11 @@
 ## For more information see:   
     
 [Documentation](https://vegacms.com)   
-[Packagist](https://packagist.org/packages/vegacms/cms) 
+[Packagist](https://packagist.org/packages/vegacms/cms)
+
+## Contributors:
+
+[Nedyalko Raikov](https://github.com/NRaykov)
 
 ## License:
 
