@@ -123,7 +123,7 @@ class PackageServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(RouteServiceProvider::class);
+        //$this->app->register(RouteServiceProvider::class);
 
         // Services
         $this->app->bind(RouteServiceInterface::class, RouteService::class);
@@ -165,13 +165,12 @@ class PackageServiceProvider extends ServiceProvider
      */
     protected function registerSeedsFrom()
     {
-            $command = request()->server('argv', null);
-            if (is_array($command)) {
-                $command = implode(' ', $command);
-                if ($command === 'artisan db:seed' || $command === 'artisan migrate:fresh --seed') {
-                    Artisan::call('db:seed', ['--class' => 'Vegacms\Cms\Database\Seeders\VegaCmsDatabaseSeeder']);
-                }
+        $command = request()->server('argv', null);
+        if (is_array($command)) {
+            $command = implode(' ', $command);
+            if ($command === 'artisan db:seed' || $command === 'artisan migrate:fresh --seed') {
+                Artisan::call('db:seed', ['--class' => 'Vegacms\Cms\Database\Seeders\VegaCmsDatabaseSeeder']);
             }
-
+        }
     }
 }

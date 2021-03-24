@@ -3,6 +3,7 @@
 namespace Vegacms\Cms\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 use Vegacms\Cms\Traits\CommandUtilities;
 use Vegacms\Cms\Services\Interfaces\FileCreateServiceInterface;
@@ -74,6 +75,16 @@ class IntegrateVegaCms extends Command
             false
         );
         $this->info('Vega CMS routes added.');
+
+        File::delete('/app/Providers/AppServiceProvider.php');
+        $fileService->createFile(
+            '/app/Providers/',
+            'AppServiceProvider',
+            '.php',
+            __DIR__ . '/../../../Stubs/AppServiceProvider.stub',
+            false
+        );
+        $this->info('Vega CMS RouteServiceProvider added.');
 
         shell_exec('mkdir ' . base_path() . '/app/Traits');
 
