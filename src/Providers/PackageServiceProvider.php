@@ -65,9 +65,9 @@ class PackageServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'vegacms');
 
-//        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
-//
-//        $this->loadFactoriesFrom(__DIR__ . '/../../database/factories');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+
+        $this->loadFactoriesFrom(__DIR__ . '/../../database/factories');
 
         $this->publishes([
             __DIR__ . '/../../resources/views' => resource_path('views/vendor/vegacms'),
@@ -123,7 +123,7 @@ class PackageServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(RouteServiceProvider::class);
+        //$this->app->register(RouteServiceProvider::class);
 
         // Services
         $this->app->bind(RouteServiceInterface::class, RouteService::class);
@@ -165,13 +165,12 @@ class PackageServiceProvider extends ServiceProvider
      */
     protected function registerSeedsFrom()
     {
-            $command = request()->server('argv', null);
-            if (is_array($command)) {
-                $command = implode(' ', $command);
-                if ($command === 'artisan db:seed' || $command === 'artisan migrate:fresh --seed') {
-                    Artisan::call('db:seed', ['--class' => 'Vegacms\Cms\Database\Seeders\VegaCmsDatabaseSeeder']);
-                }
+        $command = request()->server('argv', null);
+        if (is_array($command)) {
+            $command = implode(' ', $command);
+            if ($command === 'artisan db:seed' || $command === 'artisan migrate:fresh --seed') {
+                Artisan::call('db:seed', ['--class' => 'Vegacms\Cms\Database\Seeders\VegaCmsDatabaseSeeder']);
             }
-
+        }
     }
 }

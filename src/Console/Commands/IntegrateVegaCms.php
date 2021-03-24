@@ -3,6 +3,7 @@
 namespace Vegacms\Cms\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 use Vegacms\Cms\Traits\CommandUtilities;
 use Vegacms\Cms\Services\Interfaces\FileCreateServiceInterface;
@@ -61,19 +62,29 @@ class IntegrateVegaCms extends Command
         );
         $fileService->createFile(
             '/routes/',
-            'api',
+            'vega-api',
             '.php',
             __DIR__ . '/../../../Stubs/vega-api.stub',
             false
         );
         $fileService->createFile(
             '/routes/',
-            'web',
+            'vega-web',
             '.php',
             __DIR__ . '/../../../Stubs/vega-web.stub',
             false
         );
         $this->info('Vega CMS routes added.');
+
+        File::delete('/app/Providers/AppServiceProvider.php');
+        $fileService->createFile(
+            '/app/Providers/',
+            'AppServiceProvider',
+            '.php',
+            __DIR__ . '/../../../Stubs/AppServiceProvider.stub',
+            false
+        );
+        $this->info('Vega CMS RouteServiceProvider added.');
 
         shell_exec('mkdir ' . base_path() . '/app/Traits');
 
@@ -110,6 +121,10 @@ class IntegrateVegaCms extends Command
         shell_exec('npm install --save jquery');
         $this->info('JS libraries added.');
 
+        // Install SASS Loader
+        shell_exec('npm install sass-loader --save-dev');
+        $this->info('SASS Loader installed.');
+
         // Include front-end assets
         file_put_contents(
             base_path() . '/resources/js/app.js',
@@ -117,11 +132,20 @@ class IntegrateVegaCms extends Command
             FILE_APPEND
         );
         file_put_contents(
-            base_path() . '/resources/sass/app.scss',
+            base_path() . '/resources/css/app.css',
             '@import \'../assets/sass/app.scss\';',
             FILE_APPEND
         );
         $this->info('Assets included.');
+
+        $fileService->createFile(
+            '/',
+            'webpack.mix',
+            '.js',
+            __DIR__ . '/../../../Stubs/webpack-mix.stub',
+            false
+        );
+        $this->info('webpack-mix.js configured.');
 
         // Transpile front-end assets
         shell_exec('npm run watch');
