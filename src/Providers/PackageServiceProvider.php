@@ -97,6 +97,10 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__ . '/../../resources/sass' => resource_path('assets/sass'),
         ], 'vegacms-assets-sass');
 
+        $this->publishes([
+            __DIR__ . '/../Http/Controllers/Auth' => app_path('Http/Controllers'),
+        ], 'vegacms-auth-controllers');
+
         $this->registerSeedsFrom();
 
         if ($this->app->runningInConsole()) {
