@@ -105,6 +105,10 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__ . '/../../resources/views/auth' => resource_path('views/auth'),
         ], 'vegacms-auth-views');
 
+        $this->publishes([
+            __DIR__ . '/../../resources/views/auth' => resource_path('views/admin/layouts'),
+        ], 'vegacms-admin-layouts');
+
         $this->registerSeedsFrom();
 
         if ($this->app->runningInConsole()) {
