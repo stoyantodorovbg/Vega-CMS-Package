@@ -102,6 +102,10 @@ class PackageServiceProvider extends ServiceProvider
         ], 'vegacms-auth-controllers');
 
         $this->publishes([
+            __DIR__ . '/../Http/Controllers/Admin/DeleteController.php' => app_path('Http/Controllers/Admin/DeleteController.php'),
+        ], 'vegacms-admin-delete-controller');
+
+        $this->publishes([
             __DIR__ . '/../../resources/views/auth' => resource_path('views/auth'),
         ], 'vegacms-auth-views');
 
