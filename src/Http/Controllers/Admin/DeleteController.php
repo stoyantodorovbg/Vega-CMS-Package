@@ -23,7 +23,7 @@ class DeleteController extends Controller
      */
     public function destroy(AdminDeleteRequest $request, string $methodName = '')
     {
-        $modelPath = '\\Vegacms\\Cms\\Models\\' . Str::studly($request->modelName);
+        $modelPath = $request->modelPath;;
         $method = strtolower($request->modelName);
         $methodExists = method_exists($this, $method);
         if(!$methodExists && $model = $modelPath::find($request->slug)) {

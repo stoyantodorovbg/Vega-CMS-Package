@@ -55,7 +55,8 @@
                 axios.delete('/admin/' + this.$store.getters.locale + 'destroy', {
                         params: {
                             slug: this.request_data.slug,
-                            modelName: this.request_data.modelName
+                            modelName: this.request_data.modelName,
+                            modelPath: this.request_data.modelPath,
                         }
                     }
                 ).then((response) => {

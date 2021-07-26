@@ -327,6 +327,7 @@ export default {
             this.deleteRequestData = {
                 'slug': itemId,
                 'modelName': this.modelNameSlug,
+                'modelPath': this.model_name,
             };
             document.getElementById('deleteModelModalTrigger').click();
         }
